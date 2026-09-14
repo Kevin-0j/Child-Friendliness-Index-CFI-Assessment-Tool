@@ -1,0 +1,62 @@
+{
+  "assessment": {
+    "title": "Child-Friendliness Index (CFI) Assessment",
+    "domains": [
+      {
+        "id": "built_environment",
+        "title": "Built Environment",
+        "questions": [
+          {"id": "be_1", "text": "Are corridors wide enough and free of obstacles for safe movement?", "scale": 5},
+          {"id": "be_2", "text": "Is the lighting and signage in corridors and circulation areas adequate?", "scale": 5},
+          {"id": "be_3", "text": "Are balcony railings at a safe height with appropriate gap sizes?", "scale": 5},
+          {"id": "be_4", "text": "Do balcony doors have functional childproof locks?", "scale": 5},
+          {"id": "be_5", "text": "Is the building fully accessible (e.g., reliable lifts, pram-friendly routes)?", "scale": 5}
+        ]
+      },
+      {
+        "id": "safety_security",
+        "title": "Safety & Security",
+        "questions": [
+          {"id": "ss_1", "text": "Is there adequate surveillance (CCTV or guards) monitoring child areas?", "scale": 5},
+          {"id": "ss_2", "text": "Are play areas highly visible to parents and caregivers?", "scale": 5},
+          {"id": "ss_3", "text": "Is the lighting in outdoor spaces and staircases sufficient for safety?", "scale": 5},
+          {"id": "ss_4", "text": "Are vehicle speeds strictly controlled (e.g., speed bumps, clear signage)?", "scale": 5},
+          {"id": "ss_5", "text": "Are pedestrian paths safely separated from vehicle traffic?", "scale": 5}
+        ]
+      },
+      {
+        "id": "play_social",
+        "title": "Play & Social Infrastructure",
+        "questions": [
+          {"id": "ps_1", "text": "Are designated play areas available and easily accessible?", "scale": 5},
+          {"id": "ps_2", "text": "Is the play equipment safe, age-appropriate, and well-maintained?", "scale": 5},
+          {"id": "ps_3", "text": "Do the outdoor play areas have adequate safety surfacing and shade?", "scale": 5},
+          {"id": "ps_4", "text": "Are there communal spaces (courtyards, community rooms) available?", "scale": 5},
+          {"id": "ps_5", "text": "Are there adequate seating areas that encourage social interaction?", "scale": 5}
+        ]
+      },
+      {
+        "id": "environmental_quality",
+        "title": "Environmental Quality",
+        "questions": [
+          {"id": "eq_1", "text": "Do the housing units have adequate window sizes and cross-ventilation?", "scale": 5},
+          {"id": "eq_2", "text": "Is the natural daylight inside the units sufficient?", "scale": 5},
+          {"id": "eq_3", "text": "Are lower floors and common corridors free from excessive darkness?", "scale": 5},
+          {"id": "eq_4", "text": "Are noise levels low enough to prevent disruption to children?", "scale": 5},
+          {"id": "eq_5", "text": "Is the housing environment free from severe overcrowding?", "scale": 5}
+        ]
+      },
+      {
+        "id": "child_development",
+        "title": "Child Development Support",
+        "questions": [
+          {"id": "cd_1", "text": "Does the environment allow children to safely move around independently?", "scale": 5},
+          {"id": "cd_2", "text": "Is wayfinding easy for children to understand?", "scale": 5},
+          {"id": "cd_3", "text": "Does the estate facilitate frequent play and social interaction with peers?", "scale": 5},
+          {"id": "cd_4", "text": "Are there quiet spaces or dedicated areas suitable for homework?", "scale": 5},
+          {"id": "cd_5", "text": "Does the environment allow for easy parental supervision during routines?", "scale": 5}
+        ]
+      }
+    ]
+  }
+}
