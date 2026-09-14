@@ -45,7 +45,7 @@ export function ResultsRadarChart() {
             fillOpacity={0.5}
           />
           <Tooltip 
-            formatter={(value: number) => [`${value} / 25`, 'Score']}
+            formatter={(value: any) => [`${value} / 25`, 'Score']}
             contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}
           />
         </RadarChart>
