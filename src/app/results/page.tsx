@@ -130,6 +130,34 @@ export default function ResultsPage() {
           </button>
         </motion.div>
 
+        {/* Score Translation Key */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="mt-12 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm"
+        >
+          <h3 className="text-xl font-bold text-slate-800 mb-6">Score Translation Key</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl border-2 bg-emerald-50 text-emerald-800 border-emerald-200 flex flex-col items-center text-center">
+              <span className="text-2xl font-black mb-1">100–125</span>
+              <span className="text-sm font-semibold">Highly Child-Friendly</span>
+            </div>
+            <div className="p-4 rounded-xl border-2 bg-blue-50 text-blue-800 border-blue-200 flex flex-col items-center text-center">
+              <span className="text-2xl font-black mb-1">75–99</span>
+              <span className="text-sm font-semibold">Moderately Child-Friendly</span>
+            </div>
+            <div className="p-4 rounded-xl border-2 bg-yellow-50 text-yellow-800 border-yellow-200 flex flex-col items-center text-center">
+              <span className="text-2xl font-black mb-1">50–74</span>
+              <span className="text-sm font-semibold">Low Child-Friendliness</span>
+            </div>
+            <div className="p-4 rounded-xl border-2 bg-red-50 text-red-800 border-red-200 flex flex-col items-center text-center">
+              <span className="text-2xl font-black mb-1">0–49</span>
+              <span className="text-sm font-semibold">Not Child-Friendly</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Hints / Explanatory Section */}
         <motion.div
           initial={{ opacity: 0 }}
