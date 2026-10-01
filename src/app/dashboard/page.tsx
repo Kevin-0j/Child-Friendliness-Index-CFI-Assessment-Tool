@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAssessment, Role } from "@/context/AssessmentContext";
-import { Building, History, Settings, ExternalLink, ShieldCheck, Users, ArrowRight, LayoutDashboard, Menu, X, Edit, FileText } from "lucide-react";
+import { Building, History, Settings, ExternalLink, ShieldCheck, Users, ArrowRight, LayoutDashboard, Menu, X, Edit, FileText, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,9 +14,8 @@ export default function Dashboard() {
   const router = useRouter();
   const { setRole, resetAssessment, loadAssessment } = useAssessment();
 
-  useEffect(() => {
-    // Load past assessments from the API database
-    fetch("http://localhost:3000/api/buildings")
+  const fetchAssessments = () => {
+    fetch("/api/buildings")
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
@@ -26,7 +25,22 @@ export default function Dashboard() {
         }
       })
       .catch(e => console.error("Failed to fetch assessments"));
+  };
+
+  useEffect(() => {
+    fetchAssessments();
   }, []);
+
+  const handleDelete = async (id: string) => {
+    if (confirm("Are you sure you want to delete this assessment?")) {
+      try {
+        await fetch(`/api/buildings?id=${id}`, { method: "DELETE" });
+        fetchAssessments();
+      } catch (error) {
+        console.error("Failed to delete assessment");
+      }
+    }
+  };
 
   const handleRoleSelection = (role: Role) => {
     resetAssessment();
@@ -224,17 +238,25 @@ export default function Dashboard() {
                         
                         <div className="flex flex-row md:flex-col items-center md:items-end gap-3 min-w-[120px]">
                           <div className="text-3xl font-black text-slate-900">{item.score}<span className="text-lg text-slate-400 font-normal">/100</span></div>
-                          <button 
-                            onClick={() => {
-                              if (confirm("Are you sure you want to update this assessment? This will load the past report and allow you to overwrite it.")) {
-                                loadAssessment(item);
-                                router.push("/assessment");
-                              }
-                            }}
-                            className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 ml-auto md:ml-0"
-                          >
-                            <Edit size={16} /> Update Report
-                          </button>
+                          <div className="flex gap-4 items-center">
+                            <button 
+                              onClick={() => {
+                                if (confirm("Are you sure you want to update this assessment? This will load the past report and allow you to overwrite it.")) {
+                                  loadAssessment(item);
+                                  router.push("/assessment");
+                                }
+                              }}
+                              className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800"
+                            >
+                              <Edit size={16} /> Update Report
+                            </button>
+                            <button 
+                              onClick={() => handleDelete(item.id)}
+                              className="flex items-center gap-2 text-sm font-medium text-red-600 hover:text-red-800"
+                            >
+                              <Trash2 size={16} /> Delete
+                            </button>
+                          </div>
                         </div>
                       </div>
                     ))}

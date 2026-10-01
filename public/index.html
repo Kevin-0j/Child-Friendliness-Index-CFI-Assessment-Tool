@@ -120,60 +120,68 @@
     </section>
 
     <!-- Evaluated Spaces Network Map -->
-    <section class="section" id="network-map" style="background-color: #0A0A0A; border-top: 1px solid #222;">
+    <section class="section" id="network-map" style="background-color: #F1F5F9; padding: 120px 0;">
         <div class="container">
-            <div class="section-header fade-in-up" style="margin-bottom: 30px; text-align: left;">
-                <h2 class="section-title text-white">Evaluated Spaces Network</h2>
-                <p class="section-subtitle text-white" style="color: #A0A0AB;">Explore certified child-friendly locations in our database using real satellite imagery.</p>
+            <div class="section-header fade-in-up" style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title" style="font-size: 3.5rem; letter-spacing: -1px; color: #0F172A;">The Certified Network</h2>
+                <p class="section-subtitle" style="font-size: 1.25rem; color: #64748B; max-width: 600px; margin: 0 auto;">Explore our growing database of child-friendly locations. These spaces have been rigorously evaluated by our experts.</p>
             </div>
             
-            <div class="map-filters fade-in-up delay-1">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="Institution">Institution</button>
-                <button class="filter-btn" data-filter="Residential">Residential</button>
-                <span class="map-stats" id="map-stats">0 locations</span>
-            </div>
-            
-            <div class="map-legend fade-in-up delay-1" style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding: 16px; background: #111; border-radius: 12px; border: 1px solid #333;">
-                <div style="flex: 1; min-width: 200px;">
-                    <div style="font-family: var(--font-heading); color: white; font-weight: bold; margin-bottom: 8px;">Understanding the Scores</div>
-                    <p style="color: #A0A0AB; font-size: 13px; margin: 0;">The Child-Friendliness Index (CFI) evaluates properties out of 125 possible points.</p>
+            <div class="fade-in-up delay-1" style="background: white; padding: 40px; border-radius: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.03);">
+                <div class="map-filters" style="margin-bottom: 30px;">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Institution">Institution</button>
+                    <button class="filter-btn" data-filter="Residential">Residential</button>
+                    <span class="map-stats" id="map-stats" style="color: #64748B; font-weight: 600;">0 locations</span>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #10B981; border: 2px solid white;"></span>
-                        <span style="color: white; font-size: 13px;"><strong>100–125:</strong> Highly Friendly</span>
+                
+                <div class="map-legend" style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; padding: 20px 24px; background: #F8FAFC; border-radius: 20px; border: 1px solid #E2E8F0;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <div style="font-family: var(--font-heading); color: #0F172A; font-weight: 800; margin-bottom: 4px; font-size: 1.1rem;">Understanding the Scores</div>
+                        <p style="color: #64748B; font-size: 14px; margin: 0;">The Child-Friendliness Index (CFI) evaluates properties out of 125 possible points.</p>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #3B82F6; border: 2px solid white;"></span>
-                        <span style="color: white; font-size: 13px;"><strong>75–99:</strong> Moderately Friendly</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #F59E0B; border: 2px solid white;"></span>
-                        <span style="color: white; font-size: 13px;"><strong>50–74:</strong> Low Friendliness</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #EF4444; border: 2px solid white;"></span>
-                        <span style="color: white; font-size: 13px;"><strong>0–49:</strong> Not Friendly</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; background: #10B981; border: 3px solid #D1FAE5;"></span>
+                            <span style="color: #334155; font-size: 14px; font-weight: 600;">100–125</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; background: #3B82F6; border: 3px solid #DBEAFE;"></span>
+                            <span style="color: #334155; font-size: 14px; font-weight: 600;">75–99</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; background: #F59E0B; border: 3px solid #FEF3C7;"></span>
+                            <span style="color: #334155; font-size: 14px; font-weight: 600;">50–74</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; background: #EF4444; border: 3px solid #FEE2E2;"></span>
+                            <span style="color: #334155; font-size: 14px; font-weight: 600;">0–49</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="map-container fade-in-up delay-2">
-                <div id="map"></div>
+                
+                <div class="map-container" style="border-radius: 20px; overflow: hidden; border: 1px solid #E2E8F0;">
+                    <div id="map"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section dark-section" id="contact">
+    <section class="section" id="contact" style="background-color: #fff; padding: 120px 0;">
         <div class="container">
-            <div class="contact-wrapper fade-in-up">
-                <h2 class="section-title text-white">Ready to transform your space?</h2>
-                <p class="section-subtitle text-white">Book a call with our experts today to start your assessment journey.</p>
-                <div style="margin-top: 40px;">
-                    <a href="#" class="btn btn-primary btn-lg open-contact-btn">Book a call now</a>
-                </div>
+            <div class="fade-in-up" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 40px; padding: 100px 40px; text-align: center; box-shadow: 0 40px 80px rgba(15, 23, 42, 0.15); position: relative; overflow: hidden;">
+                <!-- Decorative gradient blob -->
+                <div style="position: absolute; top: -50%; left: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 60%); transform: rotate(30deg); pointer-events: none;"></div>
+                <div style="position: absolute; bottom: -50%; right: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%); transform: rotate(-30deg); pointer-events: none;"></div>
+                
+                <h2 style="font-family: var(--font-heading); font-size: 4.5rem; color: #fff; font-weight: 900; letter-spacing: -2px; margin-bottom: 24px; position: relative; z-index: 10; line-height: 1;">
+                    Ready to transform <br><span style="color: #38BDF8;">your space?</span>
+                </h2>
+                <p style="font-size: 1.35rem; color: #CBD5E1; max-width: 550px; margin: 0 auto 50px auto; line-height: 1.6; position: relative; z-index: 10; font-weight: 400;">
+                    Stop guessing what families want. Get an expert evaluation and start building a space that children will truly love.
+                </p>
+                <a href="#" class="open-contact-btn" style="display: inline-block; background: #38BDF8; color: #0F172A; padding: 18px 48px; font-size: 1.25rem; font-weight: 800; border: none; border-radius: 50px; text-decoration: none; position: relative; z-index: 10; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 30px rgba(56, 189, 248, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">Book a Strategy Call &rarr;</a>
             </div>
         </div>
     </section>
