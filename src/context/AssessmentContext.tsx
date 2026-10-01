@@ -16,8 +16,14 @@ export interface DomainScore {
 }
 
 interface AssessmentContextType {
+  assessmentId: string | null;
+  setAssessmentId: (id: string | null) => void;
   role: Role;
   setRole: (role: Role) => void;
+  buildingName: string;
+  setBuildingName: (name: string) => void;
+  location: any;
+  setLocation: (loc: any) => void;
   answers: Answers;
   setAnswer: (questionId: string, value: number) => void;
   currentDomainIndex: number;
@@ -25,6 +31,7 @@ interface AssessmentContextType {
   isAssessmentComplete: boolean;
   completeAssessment: () => void;
   resetAssessment: () => void;
+  loadAssessment: (pastReport: any) => void;
   calculateDomainScores: () => DomainScore[];
   calculateTotalScore: () => number;
   calculateCFI: () => number;
@@ -35,9 +42,12 @@ interface AssessmentContextType {
 const AssessmentContext = createContext<AssessmentContextType | undefined>(undefined);
 
 export function AssessmentProvider({ children }: { children: ReactNode }) {
+  const [assessmentId, setAssessmentId] = useState<string | null>(null);
   const [role, setRole] = useState<Role>(null);
+  const [buildingName, setBuildingName] = useState<string>("");
+  const [location, setLocation] = useState<any>(null);
   const [answers, setAnswers] = useState<Answers>({});
-  const [currentDomainIndex, setCurrentDomainIndex] = useState(0);
+  const [currentDomainIndex, setCurrentDomainIndex] = useState(-1);
   const [isAssessmentComplete, setIsAssessmentComplete] = useState(false);
 
   // Load state from localStorage on mount (hydration safe)
@@ -46,7 +56,10 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
+        if (parsed.assessmentId) setAssessmentId(parsed.assessmentId);
         if (parsed.role) setRole(parsed.role);
+        if (parsed.buildingName) setBuildingName(parsed.buildingName);
+        if (parsed.location) setLocation(parsed.location);
         if (parsed.answers) setAnswers(parsed.answers);
         if (typeof parsed.currentDomainIndex === 'number') setCurrentDomainIndex(parsed.currentDomainIndex);
         if (parsed.isAssessmentComplete) setIsAssessmentComplete(parsed.isAssessmentComplete);
@@ -59,12 +72,15 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   // Save state to localStorage
   useEffect(() => {
     localStorage.setItem("cfi_state", JSON.stringify({
+      assessmentId,
       role,
+      buildingName,
+      location,
       answers,
       currentDomainIndex,
       isAssessmentComplete
     }));
-  }, [role, answers, currentDomainIndex, isAssessmentComplete]);
+  }, [assessmentId, role, buildingName, location, answers, currentDomainIndex, isAssessmentComplete]);
 
   const setAnswer = (questionId: string, value: number) => {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
@@ -73,11 +89,24 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   const completeAssessment = () => setIsAssessmentComplete(true);
 
   const resetAssessment = () => {
+    setAssessmentId(null);
     setRole(null);
+    setBuildingName("");
+    setLocation(null);
     setAnswers({});
-    setCurrentDomainIndex(0);
+    setCurrentDomainIndex(-1);
     setIsAssessmentComplete(false);
     localStorage.removeItem("cfi_state");
+  };
+
+  const loadAssessment = (pastReport: any) => {
+    setAssessmentId(pastReport.id || null);
+    setRole(pastReport.role);
+    setBuildingName(pastReport.buildingName || pastReport.building || "");
+    setLocation(pastReport.location || null);
+    setAnswers(pastReport.answers || {});
+    setCurrentDomainIndex(-1); // Start at location step so they can update it
+    setIsAssessmentComplete(false);
   };
 
   const calculateDomainScores = (): DomainScore[] => {
@@ -113,8 +142,14 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   return (
     <AssessmentContext.Provider
       value={{
+        assessmentId,
+        setAssessmentId,
         role,
         setRole,
+        buildingName,
+        setBuildingName,
+        location,
+        setLocation,
         answers,
         setAnswer,
         currentDomainIndex,
@@ -122,6 +157,7 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
         isAssessmentComplete,
         completeAssessment,
         resetAssessment,
+        loadAssessment,
         calculateDomainScores,
         calculateTotalScore,
         calculateCFI,

@@ -15,7 +15,12 @@ export default function ResultsPage() {
     calculateTotalScore, 
     calculateCFI, 
     getCategorization,
-    resetAssessment
+    resetAssessment,
+    buildingName,
+    location,
+    answers,
+    assessmentId,
+    setAssessmentId
   } = useAssessment();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -23,9 +28,36 @@ export default function ResultsPage() {
   useEffect(() => {
     setMounted(true);
     if (!role || !isAssessmentComplete) {
-      router.push("/");
+      router.push("/dashboard");
     }
   }, [role, isAssessmentComplete, router]);
+
+  useEffect(() => {
+    if (mounted && role && isAssessmentComplete) {
+      const score = calculateTotalScore();
+      const report = {
+        id: assessmentId || null,
+        building: buildingName || "Recent Evaluation",
+        location: location || null,
+        role,
+        score,
+        status: score >= 80 ? "Certified" : "Needs Improvement",
+        missing: score < 80 ? ["Review domains below 20 points"] : [],
+        answers,
+        date: new Date().toISOString().split('T')[0]
+      };
+
+      fetch("http://localhost:3000/api/buildings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(report)
+      }).then(res => res.json()).then(data => {
+        if (data.id && !assessmentId) {
+          setAssessmentId(data.id);
+        }
+      }).catch(console.error);
+    }
+  }, [mounted, role, isAssessmentComplete, calculateTotalScore, buildingName, location, answers, assessmentId, setAssessmentId]);
 
   if (!mounted || !role || !isAssessmentComplete) return null;
 
@@ -35,7 +67,7 @@ export default function ResultsPage() {
 
   const handleRestart = () => {
     resetAssessment();
-    router.push("/");
+    router.push("/dashboard");
   };
 
   return (
@@ -103,6 +135,44 @@ export default function ResultsPage() {
           </div>
         </motion.div>
 
+        {/* Printable Certificate Layout (Visible mainly in print or as a preview) */}
+        <div className="hidden print:block print:w-full print:h-screen print:flex print:flex-col print:items-center print:justify-center border-[12px] border-emerald-700 p-12 bg-white text-center relative mt-20">
+          <div className="absolute top-10 left-10 w-32 h-32 opacity-10 bg-emerald-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-32 h-32 opacity-10 bg-blue-500 rounded-full blur-3xl" />
+          
+          <h4 className="text-emerald-700 font-bold uppercase tracking-widest mb-4">Official Quality Seal</h4>
+          <h1 className="text-5xl font-bold text-slate-900 mb-8" style={{ fontFamily: "Georgia, serif" }}>Certificate of Assessment</h1>
+          
+          <p className="text-xl text-slate-600 mb-4">This certifies that</p>
+          <h2 className="text-4xl font-black text-slate-800 mb-4 border-b-2 border-slate-200 inline-block pb-2">{buildingName || "Evaluated Institution"}</h2>
+          <p className="text-xl text-slate-600 mb-12">has undergone a comprehensive evaluation of its environment.</p>
+          
+          <div className="flex items-center justify-center gap-8 mb-12">
+            <div className="text-center">
+              <p className="text-sm uppercase tracking-wider text-slate-500 font-bold mb-1">CFI Score</p>
+              <p className="text-4xl font-black text-emerald-600">{totalScore}<span className="text-xl text-slate-400">/125</span></p>
+            </div>
+            <div className="w-px h-16 bg-slate-200" />
+            <div className="text-center">
+              <p className="text-sm uppercase tracking-wider text-slate-500 font-bold mb-1">Status</p>
+              <div className={cn("px-4 py-2 rounded-full font-bold text-sm border-2", category.color)}>
+                {category.text}
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex justify-between w-full max-w-2xl mx-auto mt-12 border-t-2 border-slate-200 pt-8">
+            <div className="text-center">
+              <p className="font-bold text-slate-800 mb-1">Date of Assessment</p>
+              <p className="text-slate-600">{new Date().toLocaleDateString()}</p>
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-slate-800 mb-1">Assessor Role</p>
+              <p className="text-slate-600">{role}</p>
+            </div>
+          </div>
+        </div>
+
         {/* Action Buttons */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -120,7 +190,7 @@ export default function ResultsPage() {
             onClick={handleRestart}
             className="flex items-center justify-center gap-2 bg-white border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 px-8 py-3.5 rounded-full font-semibold transition-all active:scale-95"
           >
-            <RotateCcw size={18} /> Start New Assessment
+            <RotateCcw size={18} /> Return to Dashboard
           </button>
           <button 
             onClick={() => window.print()}
