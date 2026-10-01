@@ -19,6 +19,7 @@ function AutocompleteInput() {
     });
     
     // Explicitly request location field
+    // @ts-ignore: fields exists in the JS API but may be missing from types
     autocompleteElement.fields = ['displayName', 'location'];
     
     // Styling
