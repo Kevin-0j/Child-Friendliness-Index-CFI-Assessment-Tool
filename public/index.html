@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Friendly Index | Creating Spaces for Tomorrow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Marker Info Window */
+        .gm-style .gm-style-iw-c { padding: 0 !important; border-radius: 12px !important; }
+        .gm-style .gm-style-iw-d { overflow: hidden !important; }
+        .info-card { padding: 20px; min-width: 250px; }
+        .info-title { font-family: var(--font-heading); font-weight: 700; font-size: 18px; margin-bottom: 8px; color: #1F1F1F; }
+        .info-score { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+        .info-status { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .status-certified { background: #D1FAE5; color: #065F46; }
+        .status-needs-work { background: #FEF3C7; color: #92400E; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ChildFriendly.</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="map.html">Evaluated Map</a>
+            <a href="#" id="openToolBtn">The Index Tool</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#" class="btn btn-primary open-contact-btn">Let's talk &rarr;</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content fade-in-up">
+            <h1 class="hero-title">The standard for <br><span class="highlight" id="rotating-text">child-friendly</span><br> environments.</h1>
+            <p class="hero-subtitle">We assess and certify spaces to ensure they are safe, engaging, and nurturing for children. Powering the way you design, build, and operate.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary open-contact-btn">Book an Assessment</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn more</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-in-up delay-1">
+            <img src="hero.jpg" class="hero-image" alt="Modern child-friendly architecture">
+        </div>
+    </header>
+
+    <!-- Vertical Workflow Timeline -->
+    <section class="section" style="background-color: var(--white);" id="the-problem">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">The Problem With Modern Design</h2>
+                <p class="section-subtitle">Why we need a dedicated standard for children.</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-step fade-in-up">
+                    <div class="step-badge">1</div>
+                    <div class="step-content">
+                        <h3>Adult-Centric Architecture</h3>
+                        <p>Most buildings are designed entirely around adult ergonomics. Counters are too high, seating is inappropriate, and wayfinding ignores early developmental stages.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step fade-in-up delay-1">
+                    <div class="step-badge">2</div>
+                    <div class="step-content">
+                        <h3>Hidden Safety Blindspots</h3>
+                        <p>Standard building codes address structural safety but overlook child-specific hazards—from sharp edges at eye level to unguarded transition zones.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step fade-in-up delay-2">
+                    <div class="step-badge">3</div>
+                    <div class="step-content">
+                        <h3>The Child Friendly Index</h3>
+                        <p>We've developed a comprehensive standard to evaluate and fix these issues, transforming standard spaces into environments where children can safely thrive and engage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem / Solution -->
+    <section class="section light-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Is your space truly welcoming? <br><span class="highlight-text">We make sure it is.</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">01</div>
+                    <h3>Comprehensive Assessment</h3>
+                    <p>Our proprietary Child Friendly Index evaluates safety, accessibility, and engagement metrics across your entire facility.</p>
+                </div>
+                <div class="feature-card fade-in-up delay-1">
+                    <div class="feature-icon">02</div>
+                    <h3>Expert Guidance</h3>
+                    <p>Even if a building doesn't meet the index initially, our professionals will come and guide you step-by-step to make it friendly and compliant.</p>
+                </div>
+                <div class="feature-card fade-in-up delay-2">
+                    <div class="feature-icon">03</div>
+                    <h3>Continuous Support</h3>
+                    <p>We don't just assess; we partner with you to maintain and improve your standards over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluated Spaces Network Map -->
+    <section class="section" id="network-map" style="background-color: #0A0A0A; border-top: 1px solid #222;">
+        <div class="container">
+            <div class="section-header fade-in-up" style="margin-bottom: 30px; text-align: left;">
+                <h2 class="section-title text-white">Evaluated Spaces Network</h2>
+                <p class="section-subtitle text-white" style="color: #A0A0AB;">Explore certified child-friendly locations in our database using real satellite imagery.</p>
+            </div>
+            
+            <div class="map-filters fade-in-up delay-1">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Institution">Institution</button>
+                <button class="filter-btn" data-filter="Residential">Residential</button>
+                <span class="map-stats" id="map-stats">0 locations</span>
+            </div>
+            
+            <div class="map-legend fade-in-up delay-1" style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding: 16px; background: #111; border-radius: 12px; border: 1px solid #333;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="font-family: var(--font-heading); color: white; font-weight: bold; margin-bottom: 8px;">Understanding the Scores</div>
+                    <p style="color: #A0A0AB; font-size: 13px; margin: 0;">The Child-Friendliness Index (CFI) evaluates properties out of 125 possible points.</p>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #10B981; border: 2px solid white;"></span>
+                        <span style="color: white; font-size: 13px;"><strong>100–125:</strong> Highly Friendly</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #3B82F6; border: 2px solid white;"></span>
+                        <span style="color: white; font-size: 13px;"><strong>75–99:</strong> Moderately Friendly</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #F59E0B; border: 2px solid white;"></span>
+                        <span style="color: white; font-size: 13px;"><strong>50–74:</strong> Low Friendliness</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #EF4444; border: 2px solid white;"></span>
+                        <span style="color: white; font-size: 13px;"><strong>0–49:</strong> Not Friendly</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container fade-in-up delay-2">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section dark-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper fade-in-up">
+                <h2 class="section-title text-white">Ready to transform your space?</h2>
+                <p class="section-subtitle text-white">Book a call with our experts today to start your assessment journey.</p>
+                <div style="margin-top: 40px;">
+                    <a href="#" class="btn btn-primary btn-lg open-contact-btn">Book a call now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn contact-close-btn">&times;</span>
+            <h2>Get in touch</h2>
+            <p>Reach out to us directly to schedule your assessment or ask any questions.</p>
+            <div class="contact-methods">
+                <a href="mailto:houseofazaani@gmail.com?subject=Inquiry%20Regarding%20Child-Friendly%20Index%20Evaluation&body=Dear%20ChildFriendly%20Team%2C%0D%0A%0D%0AI%20hope%20this%20email%20finds%20you%20well.%0D%0A%0D%0AI%20am%20writing%20to%20express%20our%20interest%20in%20partnering%20with%20you%20to%20evaluate%20and%20certify%20our%20property%20under%20the%20Child-Friendly%20Index%20standard.%20We%20are%20committed%20to%20creating%20a%20safe%20and%20engaging%20environment%20for%20children%20and%20would%20love%20to%20learn%20more%20about%20the%20next%20steps%20in%20the%20assessment%20process.%0D%0A%0D%0APlease%20find%20our%20preliminary%20details%20below%3A%0D%0A-%20Organization%20%2F%20Building%20Name%3A%20%0D%0A-%20Location%3A%20%0D%0A-%20Contact%20Person%3A%20%0D%0A-%20Phone%20Number%3A%20%0D%0A%0D%0AWe%20look%20forward%20to%20hearing%20from%20you.%0D%0A%0D%0ABest%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D%0D%0A%5BYour%20Title%5D" class="contact-card-link">
+                    <div class="contact-method-card">
+                        <span class="method-label">Email Us</span>
+                        <span class="method-value">houseofazaani@gmail.com</span>
+                    </div>
+                </a>
+                <a href="tel:+254733940215" class="contact-card-link">
+                    <div class="contact-method-card">
+                        <span class="method-label">Call Us</span>
+                        <span class="method-value">+254 733 940 215</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Login Modal -->
+    <div id="toolLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn tool-close-btn">&times;</span>
+            <h2>Access Index Tool</h2>
+            <p>This tool is for authorized assessors only.</p>
+            <div class="form-group">
+                <input type="password" id="toolPassword" placeholder="Enter Access Code">
+                <p id="loginError" class="error-msg" style="display:none;">Invalid access code.</p>
+            </div>
+            <button id="submitPassword" class="btn btn-primary w-100">Authenticate</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">ChildFriendly.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let map;
+        let markers = [];
+        let infoWindow;
+        
+        async function initMap() {
+            const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+            
+            map = new Map(document.getElementById("map"), {
+                center: { lat: -1.2921, lng: 36.8219 }, // Default to Nairobi
+                zoom: 12,
+                mapId: "DEMO_MAP_ID",
+                disableDefaultUI: false,
+                mapTypeControl: true,
+                zoomControl: true,
+            });
+
+            infoWindow = new InfoWindow();
+
+            try {
+                const res = await fetch("/api/buildings");
+                const buildings = await res.json();
+                
+                buildings.forEach(building => {
+                    if (building.location && building.location.lat) {
+                        createMarker(building, AdvancedMarkerElement, PinElement);
+                    }
+                });
+                
+                // Add filter functionality
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        
+                        const filter = e.target.dataset.filter;
+                        let count = 0;
+                        markers.forEach(m => {
+                            if (filter === 'all' || m.data.role === filter || (filter === 'Institution' && m.data.role !== 'Residential')) {
+                                m.marker.map = map;
+                                count++;
+                            } else {
+                                m.marker.map = null;
+                            }
+                        });
+                        document.getElementById('map-stats').textContent = `${count} location${count !== 1 ? 's' : ''}`;
+                    });
+                });
+                
+                document.getElementById('map-stats').textContent = `${markers.length} location${markers.length !== 1 ? 's' : ''}`;
+            } catch (err) {
+                console.error("Could not load buildings", err);
+            }
+        }
+
+        function createMarker(building, AdvancedMarkerElement, PinElement) {
+            let bgColor = "#EF4444";
+            let borderColor = "#B91C1C";
+            let statusText = "Not Friendly";
+            let statusClass = "status-needs-work";
+
+            if (building.score >= 100) {
+                bgColor = "#10B981"; borderColor = "#047857"; statusText = "Highly Friendly"; statusClass = "status-certified";
+            } else if (building.score >= 75) {
+                bgColor = "#3B82F6"; borderColor = "#1D4ED8"; statusText = "Moderately Friendly"; statusClass = "status-certified";
+            } else if (building.score >= 50) {
+                bgColor = "#F59E0B"; borderColor = "#B45309"; statusText = "Low Friendliness";
+            }
+            
+            const pin = new PinElement({
+                background: bgColor,
+                borderColor: borderColor,
+                glyphColor: "#ffffff",
+            });
+
+            const marker = new AdvancedMarkerElement({
+                map,
+                position: building.location,
+                title: building.buildingName || building.building,
+                content: pin.element
+            });
+
+            marker.addListener("click", () => {
+                const content = `
+                    <div class="info-card">
+                        <div class="info-title">${building.buildingName || building.building}</div>
+                        <p style="color:#666; font-size:13px; margin-bottom:12px;">Evaluated on ${building.date || new Date().toISOString().split('T')[0]}</p>
+                        <div class="info-score" style="color: ${bgColor}">${building.score}<span style="font-size:14px; color:#999; font-weight:normal;">/125</span></div>
+                        <div class="info-status ${statusClass}" style="background-color: ${bgColor}22; color: ${bgColor};">
+                            ${statusText}
+                        </div>
+                    </div>
+                `;
+                infoWindow.setContent(content);
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                });
+            });
+
+            markers.push({ marker, data: building });
+        }
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwHEPwzo7KylXwnoyK2cZ_ieZCWHd424&callback=initMap&v=weekly"></script>
+</body>
+</html>

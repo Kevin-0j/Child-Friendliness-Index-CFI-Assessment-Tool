@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Friendly Index | Creating Spaces for Tomorrow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ChildFriendly.</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="#" id="openToolBtn">The Index Tool</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#contact" class="btn btn-primary">Let's talk &rarr;</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content fade-in-up">
+            <h1 class="hero-title">The autonomous standard for <span class="highlight">child-friendly</span> environments.</h1>
+            <p class="hero-subtitle">We assess and certify spaces to ensure they are safe, engaging, and nurturing for children. Powering the way you design, build, and operate.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Book an Assessment</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn more</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-in-up delay-1">
+            <div class="abstract-graphic"></div>
+        </div>
+    </header>
+
+    <!-- The Problem / Solution -->
+    <section class="section light-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Is your space truly welcoming? <br><span class="highlight-text">We make sure it is.</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <h3>Comprehensive Assessment</h3>
+                    <p>Our proprietary Child Friendly Index evaluates safety, accessibility, and engagement metrics across your entire facility.</p>
+                </div>
+                <div class="feature-card fade-in-up delay-1">
+                    <h3>Expert Guidance</h3>
+                    <p>Even if a building doesn't meet the index initially, our professionals will come and guide you step-by-step to make it friendly and compliant.</p>
+                </div>
+                <div class="feature-card fade-in-up delay-2">
+                    <h3>Continuous Support</h3>
+                    <p>We don't just assess; we partner with you to maintain and improve your standards over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section dark-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper fade-in-up">
+                <h2 class="section-title text-white">Ready to transform your space?</h2>
+                <p class="section-subtitle text-white">Book a call with our experts today to start your assessment journey. We are here to guide you.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="label">Call us directly</span>
+                        <a href="tel:+254733940215" class="phone-link">+254 733 940 215</a>
+                        <a href="tel:+254717392641" class="phone-link">+254 717 392 641</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Login Modal -->
+    <div id="toolLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Access Index Tool</h2>
+            <p>This tool is for authorized assessors only.</p>
+            <div class="form-group">
+                <input type="password" id="toolPassword" placeholder="Enter Access Code">
+                <p id="loginError" class="error-msg" style="display:none;">Invalid access code.</p>
+            </div>
+            <button id="submitPassword" class="btn btn-primary w-100">Authenticate</button>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #888; text-align: center;">Note for presentation: use code "child2024"</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">ChildFriendly.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

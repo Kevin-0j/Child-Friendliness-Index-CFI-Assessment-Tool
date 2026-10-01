@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluated Buildings Map - Child-Friendly Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .map-header {
+            padding: 80px 5% 40px;
+            background: #FAFAFA;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto 0;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--border-color);
+            font-size: 16px;
+            font-family: var(--font-body);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(232, 93, 78, 0.15);
+        }
+        #map-container {
+            width: 100%;
+            height: calc(100vh - 250px);
+            min-height: 500px;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .not-found-msg {
+            display: none;
+            background: #FEF2F2;
+            color: #991B1B;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 16px;
+            text-align: center;
+            border: 1px solid #FCA5A5;
+            animation: fadeIn 0.3s ease;
+        }
+        .btn-request {
+            display: inline-block;
+            margin-top: 8px;
+            color: #DC2626;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        /* Custom Marker Info Window */
+        .gm-style .gm-style-iw-c {
+            padding: 0 !important;
+            border-radius: 12px !important;
+        }
+        .gm-style .gm-style-iw-d {
+            overflow: hidden !important;
+        }
+        .info-card {
+            padding: 20px;
+            min-width: 250px;
+        }
+        .info-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .info-score {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+        .info-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-certified { background: #D1FAE5; color: #065F46; }
+        .status-needs-work { background: #FEF3C7; color: #92400E; }
+        
+        /* Layout */
+        .map-layout {
+            display: flex;
+            height: calc(100vh - 250px);
+            min-height: 500px;
+        }
+        .map-sidebar {
+            width: 350px;
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 24px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        #map-container {
+            flex: 1;
+            height: 100%;
+        }
+        .building-list-item {
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .building-list-item:hover {
+            border-color: var(--accent);
+            background: #FEF2F2;
+        }
+        @media (max-width: 768px) {
+            .map-layout {
+                flex-direction: column;
+                height: auto;
+            }
+            .map-sidebar {
+                width: 100%;
+                height: 300px;
+            }
+            #map-container {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar scrolled">
+        <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">ChildFriendly.</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="map.html" class="active">Map</a>
+            <a href="#" onclick="document.getElementById('auth-modal').classList.add('active'); return false;" class="btn btn-primary">The Index Tool</a>
+        </div>
+    </nav>
+
+    <div class="map-header text-center">
+        <h1 class="section-title">Evaluated Buildings Map</h1>
+        <p class="section-subtitle">Search our database of certified buildings to see their Child-Friendly Index score.</p>
+        
+        <div class="search-container">
+            <input type="text" id="map-search" class="search-input" placeholder="Search our evaluated database (e.g. Pinecrest)...">
+            <div id="not-found" class="not-found-msg">
+                This building hasn't been evaluated by us yet. <br>
+                <a href="#" id="request-eval-btn" class="btn-request">Request an evaluation from our experts</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-layout">
+        <div class="map-sidebar">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 16px;">Evaluated Spaces</h3>
+            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Browse our database of certified and evaluated child-friendly buildings.</p>
+            <div id="building-list" class="building-list">
+                <div style="text-align:center; padding: 20px; color:#999;">Loading spaces...</div>
+            </div>
+        </div>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="document.getElementById('auth-modal').classList.remove('active')">&times;</span>
+            <h3 style="margin-bottom:24px; font-family:var(--font-heading);">Assessor Login</h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">Enter your 4-digit assessor passcode.</p>
+            <div class="form-group">
+                <input type="password" id="passcode-input" placeholder="Enter passcode" maxlength="4">
+                <p id="passcode-error" class="error-msg" style="display:none;">Invalid passcode.</p>
+            </div>
+            <button class="btn btn-primary w-100" onclick="authenticate()">Authenticate</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Init Map
+        let map;
+        let markers = [];
+        let infoWindow;
+        
+        async function initMap() {
+            const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+            
+            map = new Map(document.getElementById("map"), {
+                center: { lat: -1.2921, lng: 36.8219 }, // Default to Nairobi
+                zoom: 12,
+                mapId: "DEMO_MAP_ID", // Required for Advanced Markers
+                disableDefaultUI: false, // Enable UI to allow satellite switching
+                mapTypeControl: true,
+                zoomControl: true,
+            });
+
+            infoWindow = new InfoWindow();
+
+            // Fetch buildings from our Next.js API
+            try {
+                const res = await fetch("/api/buildings");
+                const buildings = await res.json();
+                
+                const listContainer = document.getElementById("building-list");
+                listContainer.innerHTML = ''; // Clear loading
+
+                if (buildings.length === 0) {
+                    listContainer.innerHTML = '<div style="padding: 20px; color:#999;">No buildings evaluated yet.</div>';
+                }
+
+                buildings.forEach(building => {
+                    if (building.location && building.location.lat) {
+                        createMarker(building, AdvancedMarkerElement, PinElement);
+                        
+                        // Add to sidebar list
+                        const isCertified = building.score >= 80;
+                        const div = document.createElement("div");
+                        div.className = "building-list-item";
+                        div.innerHTML = `
+                            <div style="font-weight: 600; margin-bottom: 4px;">${building.buildingName || building.building}</div>
+                            <div style="font-size: 13px; color: #666;">Score: <strong style="color: ${isCertified ? '#10B981' : '#F59E0B'}">${building.score}/125</strong></div>
+                        `;
+                        div.onclick = () => {
+                            const match = markers.find(m => m.data.id === building.id);
+                            if (match) {
+                                map.panTo(match.marker.position);
+                                map.setZoom(16);
+                                google.maps.event.trigger(match.marker, 'click');
+                            }
+                        };
+                        listContainer.appendChild(div);
+                    }
+                });
+            } catch (err) {
+                console.error("Could not load buildings", err);
+            }
+
+            // Setup Search
+            setupSearch();
+        }
+
+        function createMarker(building, AdvancedMarkerElement, PinElement) {
+            const isCertified = building.score >= 80;
+            
+            const pin = new PinElement({
+                background: isCertified ? "#10B981" : "#F59E0B",
+                borderColor: isCertified ? "#047857" : "#B45309",
+                glyphColor: "#ffffff",
+            });
+
+            const marker = new AdvancedMarkerElement({
+                map,
+                position: building.location,
+                title: building.buildingName || building.building,
+                content: pin.element
+            });
+
+            marker.addListener("click", () => {
+                const content = `
+                    <div class="info-card">
+                        <div class="info-title">${building.buildingName || building.building}</div>
+                        <p style="color:#666; font-size:13px; margin-bottom:12px;">Evaluated on ${building.date || new Date().toISOString().split('T')[0]}</p>
+                        <div class="info-score" style="color: ${isCertified ? '#10B981' : '#F59E0B'}">${building.score}<span style="font-size:14px; color:#999; font-weight:normal;">/125</span></div>
+                        <div class="info-status ${isCertified ? 'status-certified' : 'status-needs-work'}">
+                            ${isCertified ? 'Highly Child-Friendly' : 'Needs Improvement'}
+                        </div>
+                    </div>
+                `;
+                infoWindow.setContent(content);
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                });
+            });
+
+            markers.push({ marker, data: building });
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById("map-search");
+            const notFound = document.getElementById("not-found");
+            
+            let timeout;
+            searchInput.addEventListener("input", (e) => {
+                clearTimeout(timeout);
+                notFound.style.display = 'none';
+                infoWindow.close();
+                
+                const query = e.target.value.toLowerCase().trim();
+                if (!query) {
+                    map.setZoom(12);
+                    return;
+                }
+                
+                timeout = setTimeout(() => {
+                    const match = markers.find(m => {
+                        const name = (m.data.buildingName || m.data.building).toLowerCase();
+                        return name.includes(query);
+                    });
+
+                    if (match) {
+                        map.panTo(match.marker.position);
+                        map.setZoom(16);
+                        google.maps.event.trigger(match.marker, 'click');
+                    } else {
+                        notFound.style.display = 'block';
+                        // Preload email template
+                        const buildingSearch = encodeURIComponent(e.target.value);
+                        const subject = encodeURIComponent(`Evaluation Request: ${e.target.value}`);
+                        const body = encodeURIComponent(`Hello Child Friendly Operators,
+
+I am writing to request a formal evaluation for the following building/space, as it does not currently appear on your evaluated map.
+
+Requested Space: "${e.target.value}"
+
+Please contact me with the next steps to begin the certification process.
+
+Contact Information
+-------------------
+Company/Organization: [Enter Company Name]
+Contact Person: [Enter Your Name]
+Phone Number: [Enter Phone Number]
+City/Location: [Enter City/Location]
+
+Thank you,
+[Your Name]`);
+                        document.getElementById("request-eval-btn").href = `mailto:houseofazaani@gmail.com?subject=${subject}&body=${body}`;
+                    }
+                }, 500);
+            });
+        }
+
+        // Auth Logic for the modal in map.html
+        function authenticate() {
+            const passcode = document.getElementById("passcode-input").value;
+            const errorMsg = document.getElementById("passcode-error");
+            if (passcode === "0000") {
+                window.location.href = "/dashboard";
+            } else {
+                errorMsg.style.display = "block";
+                setTimeout(() => errorMsg.style.display = "none", 2000);
+            }
+        }
+    </script>
+    <!-- Use the user's provided API key -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwHEPwzo7KylXwnoyK2cZ_ieZCWHd424&callback=initMap&v=weekly"></script>
+</body>
+</html>

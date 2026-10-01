@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Child Friendly Index</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ChildFriendly.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="#" id="openToolBtn">The Index Tool</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#" class="btn btn-primary open-contact-btn">Let's talk &rarr;</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section">
+        <div class="container" style="max-width: 800px; padding-top: 80px;">
+            <div class="fade-in-up">
+                <h1 class="section-title">Our Vision</h1>
+                <p class="hero-subtitle" style="max-width: 100%;">We believe every space can and should be a place where children thrive. We aim to set the global standard for child-friendly environments.</p>
+            </div>
+            
+            <div class="fade-in-up delay-1" style="margin-top: 60px;">
+                <h2>Our Mission</h2>
+                <p style="color: var(--text-secondary); margin-top: 16px; font-size: 1.1rem;">
+                    To provide actionable insights and expert guidance to property owners, designers, and operators, ensuring their spaces meet the highest standards of safety, engagement, and child-centric design. We don't just point out flaws; we build solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn contact-close-btn">&times;</span>
+            <h2>Get in touch</h2>
+            <p>Reach out to us directly to schedule your assessment or ask any questions.</p>
+            <div class="contact-methods">
+                <a href="mailto:houseofazaani@gmail.com" class="contact-card-link">
+                    <div class="contact-method-card">
+                        <span class="method-label">Email Us</span>
+                        <span class="method-value">houseofazaani@gmail.com</span>
+                    </div>
+                </a>
+                <a href="tel:+254733940215" class="contact-card-link">
+                    <div class="contact-method-card">
+                        <span class="method-label">Call Us</span>
+                        <span class="method-value">+254 733 940 215</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Login Modal -->
+    <div id="toolLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn tool-close-btn">&times;</span>
+            <h2>Access Index Tool</h2>
+            <p>This tool is for authorized assessors only.</p>
+            <div class="form-group">
+                <input type="password" id="toolPassword" placeholder="Enter Access Code">
+                <p id="loginError" class="error-msg" style="display:none;">Invalid access code.</p>
+            </div>
+            <button id="submitPassword" class="btn btn-primary w-100">Authenticate</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">ChildFriendly.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
