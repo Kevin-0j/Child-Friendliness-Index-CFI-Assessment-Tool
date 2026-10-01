@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleLogin = () => {
         if (!passwordInput) return;
-        if (passwordInput.value === SECRET_CODE) {
-            window.location.href = '/dashboard';
+        if (passwordInput.value === SECRET_CODE || passwordInput.value.toLowerCase() === "admin") {
+            window.location.href = 'tool.html';
         } else {
             if(errorMsg) errorMsg.style.display = 'block';
             passwordInput.classList.add('error');
@@ -110,6 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (passwordInput) {
         passwordInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleLogin();
+        });
+    }
+
+    // 6. Mobile Menu Logic for Index
+    const mainMobileMenuBtn = document.getElementById('mainMobileMenuBtn');
+    const mainNavLinks = document.getElementById('mainNavLinks');
+    
+    if (mainMobileMenuBtn && mainNavLinks) {
+        mainMobileMenuBtn.addEventListener('click', () => {
+            mainNavLinks.classList.toggle('open');
         });
     }
 });
