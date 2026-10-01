@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleLogin = () => {
         if (!passwordInput) return;
         if (passwordInput.value === SECRET_CODE || passwordInput.value.toLowerCase() === "admin") {
-            window.location.href = 'tool.html';
+            window.location.href = '/dashboard';
         } else {
             if(errorMsg) errorMsg.style.display = 'block';
             passwordInput.classList.add('error');
