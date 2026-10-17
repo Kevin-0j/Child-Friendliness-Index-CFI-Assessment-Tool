@@ -2,450 +2,233 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Child-Friendly Index (CFI) — Architectural Assessment Instrument</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child-Friendly Index (CFI) — Architectural Safety & Design for Children</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- ======================================================================
-         FIXED 58PX NAVIGATION BAR
-         Translucent ground with 12px blur, bottom hairline, serif wordmark,
-         monospaced uppercase links, and square CTA button.
+         CLEAN SPACIOUS NAVIGATION BAR
          ====================================================================== -->
     <nav class="navbar">
-        <a href="index.html" class="nav-wordmark">
-            ChildFriendly<span class="dot">.</span>
+        <a href="index.html" class="nav-brand">
+            <img src="assets/logos/Azaani - Icon - Black.png" alt="Azaani" class="nav-logo-img">
+            <span class="nav-logo-text">ChildFriendly<span>.</span></span>
         </a>
 
         <div class="nav-links" id="mainNavLinks">
-            <a href="#argument">Argument</a>
-            <a href="#demonstration">Demonstration</a>
-            <a href="#fieldwork">Fieldwork</a>
-            <a href="#measurements">Measurements</a>
-            <a href="#simulator">Simulator</a>
+            <a href="#overview">Overview</a>
+            <a href="#perspective">Perspective</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#standards">Standards</a>
+            <a href="#quick-check">60s Check</a>
             <a href="about.html">Philosophy</a>
             <a href="map.html">Network Map</a>
         </div>
 
-        <div class="nav-controls">
-            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle between Stationery and Super Travel design systems">
-                Switch: 🌸 Super Travel
-            </button>
+        <div class="nav-controls" style="display: flex; align-items: center; gap: 14px;">
             <a href="#" class="btn btn-primary open-contact-btn desktop-only">Let's talk &rarr;</a>
-            <button class="mobile-menu-btn" id="mainMobileMenuBtn" aria-label="Toggle Navigation">[ MENU ]</button>
+            <button class="mobile-menu-btn" id="mainMobileMenuBtn" aria-label="Toggle Navigation">&#9776;</button>
         </div>
     </nav>
 
     <!-- ======================================================================
-         THE TRAVELLING PRODUCT COMPONENT
-         Single cut-out positioned fixed and keyframed across early sections.
+         SECTION 1: HERO (Simple, Clear, Humane)
          ====================================================================== -->
-    <img 
-        src="images/cfi-field-instrument.jpg" 
-        id="travelling-product" 
-        alt="Child-Friendliness Index Precision Field Instrument" 
-        style="transform: translate3d(58vw, 16vh, 0) rotate(-8deg) scale(1);"
-    >
-
-    <!-- Super Travel Floating Concierge Badge (Shown when theme is active) -->
-    <div class="concierge-badge desktop-only" style="display: none;">
-        <span class="concierge-num">01</span>
-        <span class="concierge-lbl">CFI Verified</span>
-    </div>
-
-    <!-- ======================================================================
-         SECTION 1: HERO
-         Full viewport minus nav on secondary ground, overflow clipped, column.
-         Copy block <= 46vw, monospaced kicker, headline with italic accent phrase,
-         lede, two square buttons, specifications strip at bottom, spread wordmark.
-         ====================================================================== -->
-    <header class="hero" id="hero">
-        <div class="hero-copy-block">
-            <span class="kicker">AZAANI ENVIRONMENTAL RESEARCH • NAIROBI FIELDWORK</span>
+    <header class="hero container" id="overview">
+        <div class="hero-content">
+            <span class="badge-tag">Azaani Environmental Research &bull; Nairobi</span>
             
-            <h1 class="hero-headline">
-                The built environment was engineered for adults. <em class="accent-phrase">We measure it for the child.</em>
+            <h1 class="hero-title">
+                Buildings are built for adults. <span class="highlight">We make them safe for children.</span>
             </h1>
 
-            <p class="hero-lede">
-                A STANDARDIZED DIGITAL AUDIT AND CERTIFICATION INSTRUMENT GROUNDED IN THE UNICEF CHILD-FRIENDLY CITIES INITIATIVE AND WHO GUIDELINES. BENCHMARKING HIGH-RISE RESIDENTIAL AND INSTITUTIONAL ENVIRONMENTS ACROSS EAST AFRICA.
+            <p class="hero-subtitle">
+                The Child-Friendliness Index (CFI) is an architectural framework that helps developers and property managers benchmark safety, play spaces, and comfort in high-rise residences across East Africa.
             </p>
 
             <div class="hero-actions">
                 <a href="#" class="btn btn-primary open-contact-btn">Book an Assessment &rarr;</a>
-                <a href="#demonstration" class="btn btn-secondary">Inspect Instrument ↓</a>
+                <a href="#quick-check" class="btn btn-secondary">Run 60s Check &darr;</a>
             </div>
         </div>
 
-        <!-- Specifications strip at the bottom of the column via margin-top: auto -->
-        <div class="hero-specs-strip">
-            <span>SPEC 01: 5 MEASURED DOMAINS</span>
-            <span>SPEC 02: 125-POINT MATRIX</span>
-            <span>SPEC 03: PEDIATRIC ERGONOMICS</span>
-            <span class="desktop-only">SPEC 04: ON-SITE CALIBRATION</span>
-        </div>
-
-        <!-- Spread wordmark across very foot: letters spread apart on scroll -->
-        <div class="spread-wordmark-wrap">
-            <div class="spread-wordmark" id="spreadWordmark">
-                <span>C</span><span>H</span><span>I</span><span>L</span><span>D</span>
-                <span>F</span><span>R</span><span>I</span><span>E</span><span>N</span>
-                <span>D</span><span>L</span><span>Y</span>
+        <div class="hero-visual">
+            <div class="hero-image-wrap">
+                <img src="images/insight-courtyard.jpg" alt="Child-friendly family residential courtyard in Nairobi" loading="eager">
+            </div>
+            <div class="hero-badge-float">
+                <div class="hero-badge-icon">&#10003;</div>
+                <div>
+                    <div style="font-weight: 700; font-size: 15px; color: var(--text-primary);">CFI Verified Benchmark</div>
+                    <div style="font-size: 13px; color: var(--text-muted);">UNICEF &amp; WHO Pediatric Standards</div>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- ======================================================================
-         SECTION 2: TWO-COLUMN ARGUMENT
-         Pairing heading and monospaced lede against hairline-ruled rows.
+         SECTION 2: PERSPECTIVE SHIFT (Adult 170cm vs Child 95cm)
          ====================================================================== -->
-    <section class="section" id="argument">
-        <div class="two-col-layout">
-            <div>
-                <span class="kicker">THE PRIMARY ARGUMENT</span>
-                <h2 class="section-head-serif">
-                    Standard building codes verify structural mass. <em class="accent-phrase">We verify the child.</em>
-                </h2>
-                <p class="section-lede-mono">
-                    AN ADULT ENTERS A HIGH-RISE CORRIDOR AND NOTICES POLISHED TILE AND EXTENSIVE VIEWS. A THREE-YEAR-OLD ENCOUNTERS ACCIDENTAL CLIMBING LADDERS ON BALCONIES, UNREACHABLE DOOR LATCHES, AND AN ECHO CHAMBER OF REVERBERATING CONCRETE.
+    <section class="section" id="perspective">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag">Interactive Comparison</span>
+                <h2 class="section-title">See the space at 95cm eye level</h2>
+                <p class="section-subtitle">
+                    What looks harmless to an adult can be an immediate hazard to a toddler. Toggle below to compare the adult view with the child's perspective.
                 </p>
             </div>
 
-            <div class="hairline-rows">
-                <div class="hairline-row">
-                    <span class="row-accent-label">01. BALCONIES</span>
-                    <span class="row-description">Horizontal ladder rungs found in audited Nairobi residential towers</span>
-                    <span class="row-value">73% HIGH RISK</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">02. ACOUSTICS</span>
-                    <span class="row-description">Corridor reverberation time in standard unshielded ceramic corridors</span>
-                    <span class="row-value">2.40 SECONDS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">03. RETENTION</span>
-                    <span class="row-description">Average family tenancy duration in car-free certified developments</span>
-                    <span class="row-value">4.20 YEARS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">04. RETROFIT</span>
-                    <span class="row-description">Capital expenditure per balcony for optical-grade vertical safety shields</span>
-                    <span class="row-value">&lt; $120 USD</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="simulator-wrap">
+                <div class="sim-switch-bar">
+                    <div class="sim-toggle-pill">
+                        <button class="sim-toggle-btn active" id="btnAdultView" data-view="adult">Adult View (170cm)</button>
+                        <button class="sim-toggle-btn" id="btnChildView" data-view="child">Child View (95cm)</button>
+                    </div>
 
-    <!-- ======================================================================
-         SECTION 3: DEMONSTRATION THAT DRAWS ITSELF
-         Heading, row of variant buttons using aria-pressed, bordered panel holding
-         an SVG of the product's own output drawing itself with getTotalLength().
-         Selecting a variant changes the drawing and the three facts beneath it.
-         ====================================================================== -->
-    <section class="section demonstration-section" id="demonstration">
-        <div class="demo-header-row">
-            <div>
-                <span class="kicker">CALIBRATION & VERIFICATION</span>
-                <h2 class="section-head-serif" style="margin-bottom: 0;">
-                    The Instrument in Practice: <em class="accent-phrase">Vector Output.</em>
-                </h2>
-            </div>
-
-            <!-- Variant Picker Row (using aria-pressed) -->
-            <div class="variant-picker-row" role="group" aria-label="Demonstration Variants">
-                <button class="variant-btn" aria-pressed="true" data-index="0">01 Balcony</button>
-                <button class="variant-btn" aria-pressed="false" data-index="1">02 Courtyard</button>
-                <button class="variant-btn" aria-pressed="false" data-index="2">03 Handrail</button>
-                <button class="variant-btn" aria-pressed="false" data-index="3">04 Rooftop</button>
-            </div>
-        </div>
-
-        <!-- Bordered Panel holding self-drawing SVG -->
-        <div class="demo-bordered-panel">
-            <div class="demo-svg-stage">
-                <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet">
-                    <!-- Baseline and grid hairlines -->
-                    <line x1="40" y1="360" x2="760" y2="360" class="drawing-guideline" />
-                    <line x1="40" y1="210" x2="760" y2="210" class="drawing-guideline" />
-                    <line x1="40" y1="60"  x2="760" y2="60"  class="drawing-guideline" />
-                    <line x1="400" y1="40" x2="400" y2="380" class="drawing-guideline" />
-
-                    <!-- Vector path that draws itself -->
-                    <path 
-                        id="demoDrawingPath" 
-                        class="drawing-path" 
-                        d="M 60,320 L 220,320 L 220,120 L 320,120 L 320,320 L 520,320 L 520,100 L 740,100 L 740,320" 
-                    />
-                </svg>
-            </div>
-
-            <!-- Three monospaced facts beneath the drawing -->
-            <div class="demo-facts-strip">
-                <div class="demo-fact-item">
-                    <span class="demo-fact-kicker" id="factKicker1">FACT 01: 1200MM PERIMETER</span>
-                    <span class="demo-fact-text" id="factText1">Mandatory non-climbable vertical balustrade height above floor slab level.</span>
-                </div>
-                <div class="demo-fact-item">
-                    <span class="demo-fact-kicker" id="factKicker2">FACT 02: 0MM CLIMBABLE SLATS</span>
-                    <span class="demo-fact-text" id="factText2">Strict elimination of horizontal rungs that double as toddler climbing ladders.</span>
-                </div>
-                <div class="demo-fact-item">
-                    <span class="demo-fact-kicker" id="factKicker3">FACT 03: 95MM MAX APERTURE</span>
-                    <span class="demo-fact-text" id="factText3">Maximum vertical baluster clearance preventing pediatric head entrapment.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         SECTION 4: MATERIAL & FIVE-DOMAIN SPECIFICATION
-         Two-column section pairing heading against hairline-ruled rows.
-         ====================================================================== -->
-    <section class="section" id="material">
-        <div class="two-col-layout">
-            <div>
-                <span class="kicker">METHODOLOGICAL FOUNDATION</span>
-                <h2 class="section-head-serif">
-                    Constructed from measurable standards, <em class="accent-phrase">not arbitrary taste.</em>
-                </h2>
-                <p class="section-lede-mono">
-                    EACH DOMAIN CARRIES AN EXACT 25-POINT WEIGHTING CODED ON A 5-POINT LIKERT SCALE, YIELDING A COMPREHENSIVE COMPLIANCE SCORE OUT OF 125 MAXIMUM POINTS.
-                </p>
-            </div>
-
-            <div class="hairline-rows">
-                <div class="hairline-row">
-                    <span class="row-accent-label">DOMAIN A</span>
-                    <span class="row-description">Built Environment: corridor width, non-climbable balustrades, barrier-free access</span>
-                    <span class="row-value">25 PTS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">DOMAIN B</span>
-                    <span class="row-description">Safety & Security: surveillance sightlines, traffic separation, illumination levels</span>
-                    <span class="row-value">25 PTS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">DOMAIN C</span>
-                    <span class="row-description">Play & Social Infrastructure: car-free courtyards, tactile equipment, shaded perimeters</span>
-                    <span class="row-value">25 PTS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">DOMAIN D</span>
-                    <span class="row-description">Environmental Quality: cross-ventilation, daylighting, acoustic dampening</span>
-                    <span class="row-value">25 PTS</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">DOMAIN E</span>
-                    <span class="row-description">Estate Governance: child-friendly community charter, prompt maintenance protocol</span>
-                    <span class="row-value">25 PTS</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         SECTION 5: FIELDWORK DISPATCHES (Staroot-Inspired Editorial)
-         ====================================================================== -->
-    <section class="section" id="fieldwork">
-        <div style="max-width: 680px; margin-bottom: 30px;">
-            <span class="kicker">RESEARCH DISPATCHES & AUDITS</span>
-            <h2 class="section-head-serif">
-                Fieldwork from the High-Rise Frontier: <em class="accent-phrase">Nairobi Case Studies.</em>
-            </h2>
-            <p class="section-lede-mono">
-                HUMAN-CENTERED INVESTIGATIONS CONDUCTED ACROSS 42 RESIDENTIAL TOWERS IN KILIMANI, WESTLANDS, AND KILELESHWA.
-            </p>
-        </div>
-
-        <div class="insights-grid">
-            <!-- Card 1 -->
-            <div class="insight-stationery-card">
-                <div class="insight-img-frame">
-                    <img src="images/insight-balcony.jpg" alt="Balcony safety audit in Nairobi" loading="lazy">
-                </div>
-                <span class="insight-tag">01. SAFETY & ERGONOMICS</span>
-                <h3 class="insight-title-serif">The 110cm Blind Spot: Why Standard Codes Overlook Children at 18 Floors</h3>
-                <p class="insight-snippet-mono">
-                    When our inspection team audited 42 newly commissioned balconies in 2026, over 70% featured horizontal rungs that double as toddler ladders.
-                </p>
-                <div class="insight-meta-row">
-                    <span>5 MIN READ</span>
-                    <span>DISPATCH #01 &rarr;</span>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="insight-stationery-card">
-                <div class="insight-img-frame">
-                    <img src="images/insight-courtyard.jpg" alt="Courtyard in Nairobi development" loading="lazy">
-                </div>
-                <span class="insight-tag">02. DEVELOPMENT ROI</span>
-                <h3 class="insight-title-serif">The 22% Rental Premium: Why Family-First Developments Win Long-Term</h3>
-                <p class="insight-snippet-mono">
-                    A 24-month retention audit revealed that estates with certified car-free play courtyards experience half the tenant turnover of adult-only developments.
-                </p>
-                <div class="insight-meta-row">
-                    <span>4 MIN READ</span>
-                    <span>DISPATCH #02 &rarr;</span>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="insight-stationery-card">
-                <div class="insight-img-frame">
-                    <img src="images/insight-hallway.jpg" alt="Acoustic corridor in modern apartment" loading="lazy">
-                </div>
-                <span class="insight-tag">03. SENSORY ACOUSTICS</span>
-                <h3 class="insight-title-serif">Beyond Echoing Tiles: Designing Hallways That Calm Rather Than Overstimulate</h3>
-                <p class="insight-snippet-mono">
-                    High-rise apartment corridors in Nairobi are notorious echo chambers. For a 4-year-old on the sensory spectrum, 60cm wooden handrails are foundational dignity.
-                </p>
-                <div class="insight-meta-row">
-                    <span>6 MIN READ</span>
-                    <span>DISPATCH #03 &rarr;</span>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="insight-stationery-card">
-                <div class="insight-img-frame">
-                    <img src="images/insight-rooftop.jpg" alt="Rooftop play deck in Westlands" loading="lazy">
-                </div>
-                <span class="insight-tag">04. URBAN RECLAIMING</span>
-                <h3 class="insight-title-serif">From Car Parks to Play Decks: Reclaiming Vertical Open Spaces</h3>
-                <p class="insight-snippet-mono">
-                    With ground-level square footage eaten up by required parking bays, architects in Westlands are converting high-altitude rooftops into wind-shielded community sanctuaries.
-                </p>
-                <div class="insight-meta-row">
-                    <span>5 MIN READ</span>
-                    <span>DISPATCH #04 &rarr;</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         SECTION 6: MEASUREMENTS SPECIFICATION LIST
-         Single column of hairline-ruled rows: label, description, and right-aligned tabular figure.
-         ====================================================================== -->
-    <section class="section" id="measurements">
-        <div class="measurements-container">
-            <div class="measurements-header">
-                <span class="kicker">MEASURABLE SPECIFICATIONS</span>
-                <h2 class="section-head-serif">
-                    Critical Dimensions: <em class="accent-phrase">Tolerances & Limits.</em>
-                </h2>
-                <p class="section-lede-mono">
-                    EXACT METRIC BENCHMARKS AUDITED DURING ON-SITE PROTOCOL EVALUATIONS.
-                </p>
-            </div>
-
-            <div class="hairline-rows">
-                <div class="hairline-row">
-                    <span class="row-accent-label">01. REACH</span>
-                    <span class="row-description">Maximum ergonomic height for independent child-safe common door latches</span>
-                    <span class="row-value">600 MM</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">02. BALUSTRADE</span>
-                    <span class="row-description">Minimum mandatory non-climbable vertical balcony guardrail elevation</span>
-                    <span class="row-value">1200 MM</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">03. APERTURE</span>
-                    <span class="row-description">Maximum permissible clear vertical baluster spacing (head entrapment limit)</span>
-                    <span class="row-value">95 MM</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">04. REVERB</span>
-                    <span class="row-description">Acoustic reverberation ceiling in common elevator lobbies and corridors</span>
-                    <span class="row-value">0.60 S</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">05. AISLE WIDTH</span>
-                    <span class="row-description">Minimum clear hallway transit allowance for side-by-side double strollers</span>
-                    <span class="row-value">1800 MM</span>
-                </div>
-                <div class="hairline-row">
-                    <span class="row-accent-label">06. VELOCITY</span>
-                    <span class="row-description">Physical vehicle speed constraint within shared residential estate zones</span>
-                    <span class="row-value">10 KM/H</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         SECTION 7: GAMIFIED PERSPECTIVE SIMULATOR (Stationery Coded)
-         ====================================================================== -->
-    <section class="section" id="simulator">
-        <div class="two-col-layout" style="align-items: center; margin-bottom: 30px;">
-            <div>
-                <span class="kicker">INTERACTIVE AUDIT SIMULATOR</span>
-                <h2 class="section-head-serif">
-                    Reality Check: <em class="accent-phrase">Perspective Shift.</em>
-                </h2>
-            </div>
-            <p class="section-lede-mono">
-                SWITCH EYE LEVELS BELOW TO REVEAL HOW BLIND SPOTS EMERGE AT 95CM AND CLICK PINS TO APPLY RETROFITS IN REAL TIME.
-            </p>
-        </div>
-
-        <div class="simulator-panel">
-            <div class="sim-top-bar">
-                <div class="sim-view-toggle">
-                    <button class="sim-view-btn active" data-view="adult">ADULT (170CM)</button>
-                    <button class="sim-view-btn" data-view="child">CHILD (95CM)</button>
-                </div>
-                <span id="simEyeLabel" class="text-mono" style="color: var(--secondary-ink);">
-                    PERSPECTIVE: 170CM (ADULT EYE LEVEL) • BLIND SPOTS HIDDEN
-                </span>
-                <div class="text-mono" style="font-weight: 700;">
-                    CFI SAFETY INDEX: <span id="simScoreNum" style="color: var(--ink-blue);">N/A (ADULT VIEW)</span>
-                </div>
-            </div>
-
-            <div class="sim-stage-box" id="simStageBox">
-                <img src="images/insight-balcony.jpg" alt="Balcony view" id="simStageImg">
-
-                <!-- Interactive pins (shown in child view) -->
-                <div class="hotspot-pin" style="top: 48%; left: 56%; display: none;" data-points="20">
-                    !
-                    <div class="pin-tooltip">
-                        <strong>HAZARD: CLIMBABLE SLATS</strong><br>
-                        Horizontal rungs enable toddler climbing within 6s.<br>
-                        <em>[ Click to apply shield: +20 pts ]</em>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span id="simEyeLabel" style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">
+                            Adult Perspective: View is clear and expansive.
+                        </span>
+                        <div style="background: var(--bg-subtle); padding: 6px 14px; border-radius: var(--radius-full); font-size: 13.5px; font-weight: 700;">
+                            Safety Score: <span id="simScoreNum" style="color: var(--accent);">N/A (Adult)</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hotspot-pin" style="top: 38%; right: 28%; display: none;" data-points="15">
-                    !
-                    <div class="pin-tooltip">
-                        <strong>HAZARD: LOW UNMARKED GLASS</strong><br>
-                        Risk of impact injury below adult eye line.<br>
-                        <em>[ Click to apply decals: +15 pts ]</em>
+                <div class="sim-image-stage" id="simStageBox">
+                    <img src="images/insight-balcony.jpg" alt="Balcony safety assessment" id="simStageImg">
+
+                    <!-- Hotspot 1: Climbable Slats -->
+                    <div class="sim-interactive-pin" style="top: 50%; left: 54%; display: none;" data-points="20">
+                        !
+                        <div class="pin-tip">
+                            <strong>Hazard: Climbable Horizontal Slats</strong><br>
+                            Rungs act as a ladder for toddlers.<br>
+                            <span style="color: #FCD34D;">Click to apply vertical glass shield (+20 pts)</span>
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 2: Glass Markings -->
+                    <div class="sim-interactive-pin" style="top: 36%; right: 26%; display: none;" data-points="20">
+                        !
+                        <div class="pin-tip">
+                            <strong>Hazard: Unmarked Low Glass</strong><br>
+                            Toddlers run into unmarked transparent panes.<br>
+                            <span style="color: #FCD34D;">Click to apply visual safety decals (+20 pts)</span>
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 3: Balcony Door Lock -->
+                    <div class="sim-interactive-pin" style="top: 58%; right: 12%; display: none;" data-points="20">
+                        !
+                        <div class="pin-tip">
+                            <strong>Hazard: Low Door Latch</strong><br>
+                            Unmonitored child access to high-rise balcony.<br>
+                            <span style="color: #FCD34D;">Click to add 150cm safety latch (+20 pts)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 18px; font-size: 14px; color: var(--text-muted); text-align: center;">
+                    Tip: Switch to <strong>Child View</strong> and click the red alert markers to apply safety retrofits in real time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: CASE STUDIES & FIELD INSIGHTS (Staroot-Inspired Cards)
+         ====================================================================== -->
+    <section class="section" id="case-studies" style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag">Research &amp; Fieldwork</span>
+                <h2 class="section-title">Case studies from Nairobi residences</h2>
+                <p class="section-subtitle">
+                    Practical lessons from over 40 audits in Kilimani, Westlands, and Kileleshwa. Real spaces, real solutions.
+                </p>
+            </div>
+
+            <div class="insights-grid">
+                <!-- Card 1 -->
+                <div class="insight-card" data-article="balcony">
+                    <div class="insight-card-media">
+                        <img src="images/insight-balcony.jpg" alt="Balcony safety in high-rise Nairobi apartment" loading="lazy">
+                        <span class="insight-badge-overlay">Safety &bull; 18 Floors</span>
+                    </div>
+                    <div class="insight-card-body">
+                        <div class="insight-category-tag">Balcony Ergonomics</div>
+                        <h3 class="insight-card-title">The 110cm Blind Spot: Why Standard Balustrades Fail Children</h3>
+                        <p class="insight-card-snippet">
+                            Over 70% of audited balconies have horizontal railings that double as toddler climbing ladders. Here is how modern vertical glass upgrades solve this safely without blocking views.
+                        </p>
+                        <div class="insight-card-footer">
+                            <span>5 min read</span>
+                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hotspot-pin" style="bottom: 22%; left: 62%; display: none;" data-points="15">
-                    !
-                    <div class="pin-tooltip">
-                        <strong>HAZARD: WET SLIP COEFFICIENT</strong><br>
-                        Decking loses friction in wet weather.<br>
-                        <em>[ Click to add texturing: +15 pts ]</em>
+                <!-- Card 2 -->
+                <div class="insight-card" data-article="courtyard">
+                    <div class="insight-card-media">
+                        <img src="images/insight-courtyard.jpg" alt="Courtyard play area for families" loading="lazy">
+                        <span class="insight-badge-overlay">Family ROI &bull; Retention</span>
+                    </div>
+                    <div class="insight-card-body">
+                        <div class="insight-category-tag">Community Architecture</div>
+                        <h3 class="insight-card-title">The 22% Rental Premium: Why Family-First Developments Win</h3>
+                        <p class="insight-card-snippet">
+                            Properties with dedicated, car-free courtyards retain tenant families twice as long as adult-only designs, delivering proven long-term yields for property owners.
+                        </p>
+                        <div class="insight-card-footer">
+                            <span>4 min read</span>
+                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hotspot-pin" style="top: 52%; right: 14%; display: none;" data-points="10">
-                    !
-                    <div class="pin-tooltip">
-                        <strong>HAZARD: UNPROTECTED SLIDER</strong><br>
-                        Children can open balcony door unmonitored.<br>
-                        <em>[ Click to add 150cm lock: +10 pts ]</em>
+                <!-- Card 3 -->
+                <div class="insight-card" data-article="hallway">
+                    <div class="insight-card-media">
+                        <img src="images/insight-hallway.jpg" alt="Quiet acoustic corridor with wooden handrails" loading="lazy">
+                        <span class="insight-badge-overlay">Sensory Comfort</span>
+                    </div>
+                    <div class="insight-card-body">
+                        <div class="insight-category-tag">Corridor Acoustics</div>
+                        <h3 class="insight-card-title">Beyond Echoing Tiles: Hallways That Calm Instead of Overstimulate</h3>
+                        <p class="insight-card-snippet">
+                            Harsh, reverberating corridors cause sensory distress for young children. Dual 60cm handrails and acoustic dampening create welcoming, dignified arrival spaces.
+                        </p>
+                        <div class="insight-card-footer">
+                            <span>6 min read</span>
+                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="insight-card" data-article="rooftop">
+                    <div class="insight-card-media">
+                        <img src="images/insight-rooftop.jpg" alt="Rooftop play deck in Westlands" loading="lazy">
+                        <span class="insight-badge-overlay">Urban Space</span>
+                    </div>
+                    <div class="insight-card-body">
+                        <div class="insight-category-tag">Rooftop Sky-Decks</div>
+                        <h3 class="insight-card-title">Reclaiming Open Space: Converting Roofs into Family Sanctuaries</h3>
+                        <p class="insight-card-snippet">
+                            With ground lots dedicated to parking bays, high-altitude rooftop gardens with 1800mm glass wind buffers bring back communal play in dense urban centers.
+                        </p>
+                        <div class="insight-card-footer">
+                            <span>5 min read</span>
+                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -453,183 +236,239 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 8: 60-SEC QUICK SPACE AUDITOR
+         SECTION 4: KEY STANDARDS & MEASUREMENTS (Big, Easy Numbers)
          ====================================================================== -->
-    <section class="section" id="auditor" style="background: var(--ground);">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-            <span class="kicker">INSTANT BENCHMARK CALCULATION</span>
-            <h2 class="section-head-serif">
-                Audit Your Development: <em class="accent-phrase">60-Second Check.</em>
-            </h2>
-            <p class="section-lede-mono" style="margin: 0 auto;">
-                SELECT YOUR BUILDING SPECIFICATIONS TO CALIBRATE YOUR PRELIMINARY INDEX SCORE.
-            </p>
+    <section class="section" id="standards">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag">Pediatric Dimensions</span>
+                <h2 class="section-title">Clear, measurable safety standards</h2>
+                <p class="section-subtitle">
+                    We replace guesswork with exact, evidence-based architectural benchmarks.
+                </p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-figure">1200<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                    <div class="metric-label">Balcony Guardrail Height</div>
+                    <p class="metric-desc">Non-climbable vertical perimeter guarding against accidental falls at height.</p>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-figure">95<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                    <div class="metric-label">Maximum Baluster Gap</div>
+                    <p class="metric-desc">Rigid spacing limit preventing pediatric head entrapment between vertical rails.</p>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-figure">600<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                    <div class="metric-label">Child Handrail Height</div>
+                    <p class="metric-desc">Secondary ergonomic rail along stairs and corridors allowing toddler independence.</p>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-figure">10<span style="font-size: 22px; font-weight: 600;">km/h</span></div>
+                    <div class="metric-label">Courtyard Speed Cap</div>
+                    <p class="metric-desc">Physical bollards and chicanes ensuring safe separation from moving vehicles.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="auditor-box">
-            <div style="font-family: var(--font-mono); font-size: 11px; margin-bottom: 8px; color: var(--secondary-ink);">
-                CRITERION 01: BALCONY PERIMETER
-            </div>
-            <div class="auditor-option" data-group="q1" data-pts="10">
-                <span>Horizontal metal ladder rungs under 110cm</span>
-                <span class="opt-indicator"></span>
-            </div>
-            <div class="auditor-option" data-group="q1" data-pts="20">
-                <span>Vertical bars over 110cm with standard spacing</span>
-                <span class="opt-indicator"></span>
-            </div>
-            <div class="auditor-option selected" data-group="q1" data-pts="25">
-                <span>Solid 120cm+ non-climbable vertical tempered glass balustrades</span>
-                <span class="opt-indicator"></span>
+    <!-- ======================================================================
+         SECTION 5: 60-SECOND QUICK SPACE AUDIT
+         ====================================================================== -->
+    <section class="section" id="quick-check" style="background: var(--bg-subtle);">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag">Instant Check</span>
+                <h2 class="section-title">Check your property in 60 seconds</h2>
+                <p class="section-subtitle">
+                    Select your current building features to estimate your Child-Friendliness Index score.
+                </p>
             </div>
 
-            <div style="font-family: var(--font-mono); font-size: 11px; margin: 24px 0 8px; color: var(--secondary-ink);">
-                CRITERION 02: TRAFFIC SEPARATION
-            </div>
-            <div class="auditor-option" data-group="q2" data-pts="8">
-                <span>Vehicles traverse directly through courtyard play routes</span>
-                <span class="opt-indicator"></span>
-            </div>
-            <div class="auditor-option selected" data-group="q2" data-pts="25">
-                <span>Strictly car-free courtyard physically separated by bollards</span>
-                <span class="opt-indicator"></span>
-            </div>
+            <div class="quiz-container">
+                <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+                    1. Balcony &amp; Window Railing Design
+                </h3>
+                
+                <div class="quiz-option-item" data-group="q1" data-pts="10">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary);">Horizontal metal ladder rungs</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Climbable by toddlers; height under 110cm</div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
+                </div>
 
-            <div style="margin-top: 32px; border-top: 1px solid var(--hairline); padding-top: 24px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: gap;">
+                <div class="quiz-option-item" data-group="q1" data-pts="20">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary);">Vertical railings over 110cm</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Standard vertical bars without climbing footholds</div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">20 pts</span>
+                </div>
+
+                <div class="quiz-option-item selected" data-group="q1" data-pts="25">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary);">Solid 120cm+ vertical glass balustrades</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Smooth tempered laminated glass with safe lock latches</div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
+                </div>
+
+                <h3 style="font-size: 17px; font-weight: 700; margin: 28px 0 12px; color: var(--text-primary);">
+                    2. Courtyard &amp; Vehicle Separation
+                </h3>
+
+                <div class="quiz-option-item" data-group="q2" data-pts="10">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary);">Vehicles drive through play spaces</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Shared driveway and parking directly beside play area</div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
+                </div>
+
+                <div class="quiz-option-item selected" data-group="q2" data-pts="25">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary);">Completely car-free courtyard</div>
+                        <div style="font-size: 13px; color: var(--text-muted);">Physical bollards, shaded seating, and full visibility for parents</div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
+                </div>
+
+                <div class="quiz-score-display">
+                    <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Estimated Preliminary Score</div>
+                    <div class="score-big" id="quizScoreResult">100 / 100</div>
+                    <div id="quizTierLabel" style="font-size: 15px; font-weight: 700; color: var(--emerald); margin-bottom: 24px;">
+                        PLATINUM SANCTUARY &bull; CFI CERTIFIED READY
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary open-contact-btn" style="width: 100%;">
+                        Schedule Official On-Site Assessment &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         CLEAN FOOTER
+         ====================================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="max-width: 380px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                        <img src="assets/logos/Azaani - Icon - White.png" alt="Azaani" style="height: 28px; width: auto;">
+                        <span style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #FFFFFF;">
+                            ChildFriendly<span style="color: var(--accent);">.</span>
+                        </span>
+                    </div>
+                    <p style="color: #A1A1AA; font-size: 14.5px; line-height: 1.6;">
+                        Child-Friendliness Index (CFI) by Azaani Environmental Research. Benchmarking pediatric safety and liveability in residential towers across Nairobi, Kenya.
+                    </p>
+                </div>
+
                 <div>
-                    <div class="text-mono" style="color: var(--secondary-ink); font-size: 11px;">PRELIMINARY SCORE</div>
-                    <div id="quizScoreResult" style="font-family: var(--font-serif); font-size: 38px; font-weight: 500; color: var(--ink);">
-                        100/100
+                    <div style="font-weight: 700; margin-bottom: 14px; font-size: 15px;">Quick Navigation</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#overview">Overview</a>
+                        <a href="#perspective">Perspective Shift</a>
+                        <a href="#case-studies">Nairobi Case Studies</a>
+                        <a href="#standards">Pediatric Dimensions</a>
+                        <a href="#quick-check">60s Space Check</a>
                     </div>
                 </div>
-                <div style="text-align: right;">
-                    <div class="text-mono" style="color: var(--secondary-ink); font-size: 11px;">CERTIFICATION TIER</div>
-                    <div id="quizTierLabel" class="text-mono" style="font-size: 13px; font-weight: 700; color: var(--ink-blue);">
-                        PLATINUM SANCTUARY (CERTIFIED)
+
+                <div>
+                    <div style="font-weight: 700; margin-bottom: 14px; font-size: 15px;">Direct Advisory</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://wa.me/254733940215" target="_blank" rel="noopener noreferrer" style="color: #4ADE80; font-weight: 600;">
+                            &#128172; WhatsApp: +254 733 940 215
+                        </a>
+                        <a href="tel:+254733940215">&#128222; Call: +254 733 940 215</a>
+                        <a href="mailto:houseofazaani@gmail.com">&#9993; houseofazaani@gmail.com</a>
+                        <span style="color: #71717A; font-size: 13.5px;">Nairobi, Kenya</span>
                     </div>
                 </div>
             </div>
 
-            <div style="margin-top: 24px; text-align: center;">
-                <a href="#" class="btn btn-primary open-contact-btn w-100">Schedule Official On-Site Assessment &rarr;</a>
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13.5px; color: #71717A;">
+                <span>&copy; <script>document.write(new Date().getFullYear())</script> Child-Friendliness Index (CFI) &bull; Azaani. All rights reserved.</span>
+                <span>Aligned with UNICEF Child-Friendly Cities Framework</span>
             </div>
         </div>
-    </section>
+    </footer>
 
     <!-- ======================================================================
-         SECTION 9: CLOSE
-         Short headline with an italic accent phrase, a monospaced fine-print line,
-         two buttons at opposite edge, hairline footer strip, then the wordmark
-         full width translated down slightly so the page edge crops it.
-         ====================================================================== -->
-    <section class="close-section" id="close">
-        <div class="close-content-grid">
-            <div>
-                <h2 class="close-headline">
-                    Spaces matter. <br>
-                    <em class="accent-phrase">Build them for tomorrow.</em>
-                </h2>
-                <p class="text-mono" style="color: var(--secondary-ink); margin-top: 20px; max-width: 440px;">
-                    OFFICIAL EVALUATION FRAMEWORK ESTABLISHED IN NAIROBI, KENYA. RIGOROUSLY BENCHMARKING RESIDENTIAL TOWERS AND MIXED-USE RECREATIONAL REALMS.
-                </p>
-            </div>
-
-            <div class="close-actions-wrap">
-                <a href="#" class="btn btn-primary open-contact-btn" style="width: 100%; max-width: 280px;">
-                    Book an Assessment &rarr;
-                </a>
-                <a href="#auditor" class="btn btn-secondary" style="width: 100%; max-width: 280px;">
-                    Run 60-Sec Benchmark ↓
-                </a>
-            </div>
-        </div>
-
-        <div class="close-footer-strip">
-            <span>&copy; <script>document.write(new Date().getFullYear())</script> CHILD-FRIENDLINESS INDEX (CFI) BY AZAANI</span>
-            <span>NAIROBI, KENYA • ALL RIGHTS RESERVED</span>
-        </div>
-
-        <!-- Full-width wordmark cropped by page edge -->
-        <div class="close-cropped-wordmark">
-            <span>C</span><span>H</span><span>I</span><span>L</span><span>D</span>
-            <span>F</span><span>R</span><span>I</span><span>E</span><span>N</span>
-            <span>D</span><span>L</span><span>Y</span>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         PROFESSIONAL OVERHAULED CONSULTATION SUITE MODAL
+         PROFESSIONAL CONSULTATION MODAL ("Let's Talk")
          ====================================================================== -->
     <div id="contactModal" class="modal">
-        <div class="modal-dialog-stationery">
-            <button class="modal-close-stationery" id="contactCloseBtn">&times;</button>
+        <div class="modal-content-clean">
+            <button class="modal-close-btn" id="contactCloseBtn" aria-label="Close modal">&times;</button>
             
-            <span class="kicker">CONSULTATION & AUDIT SUITE</span>
-            <h2 style="font-family: var(--font-serif); font-size: 28px; margin-bottom: 8px;">
-                Direct Advisory & Verification Line
-            </h2>
-            <p class="text-mono" style="color: var(--secondary-ink); margin-bottom: 20px;">
-                CONNECT DIRECTLY WITH OUR BUILT ENVIRONMENT AUDITORS IN NAIROBI, KENYA.
+            <span class="badge-tag">Direct Advisory</span>
+            <h2 style="font-size: 26px; margin-bottom: 8px;">Let's talk about your property</h2>
+            <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 24px;">
+                Reach our built-environment research team directly in Nairobi. We answer fast.
             </p>
 
-            <div class="modal-tabs-stationery">
-                <button class="modal-tab-btn-stationery active" id="tabBtnChannels">Direct Channels</button>
-                <button class="modal-tab-btn-stationery" id="tabBtnForm">Schedule Call</button>
-            </div>
+            <div class="channels-clean-grid">
+                <a href="https://wa.me/254733940215?text=Hello%20Azaani%20Team%2C%20I%20am%20interested%20in%20a%20Child-Friendly%20Index%20(CFI)%20assessment%20for%20our%20property." target="_blank" rel="noopener noreferrer" class="channel-box wa-box">
+                    <span class="channel-tag" style="color: #16A34A;">Direct WhatsApp</span>
+                    <span class="channel-value-text">+254 733 940 215</span>
+                    <span style="font-size: 12px; color: #16A34A; margin-top: 4px;">Replies within 15 mins</span>
+                </a>
 
-            <!-- Tab 1: Direct Channels -->
-            <div id="tabContentChannels">
-                <div class="channel-grid-stationery">
-                    <a href="https://wa.me/254733940215?text=Hello%20Azaani%20Team%2C%20I%20am%20interested%20in%20a%20Child-Friendly%20Index%20(CFI)%20assessment%20for%20our%20property." target="_blank" rel="noopener noreferrer" class="channel-card-stationery wa-accent">
-                        <div class="text-mono" style="color: var(--ink-blue); font-weight: 700; margin-bottom: 4px;">DIRECT WHATSAPP</div>
-                        <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600;">+254 733 940 215</div>
-                        <div class="text-mono" style="color: var(--muted); margin-top: 6px;">REPLIES WITHIN 15 MINS</div>
-                    </a>
+                <a href="tel:+254733940215" class="channel-box">
+                    <span class="channel-tag">Phone Call</span>
+                    <span class="channel-value-text">+254 733 940 215</span>
+                    <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Mon–Sat 8am–6pm EAT</span>
+                </a>
 
-                    <a href="tel:+254733940215" class="channel-card-stationery">
-                        <div class="text-mono" style="color: var(--secondary-ink); font-weight: 700; margin-bottom: 4px;">PRIORITY PHONE</div>
-                        <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600;">+254 733 940 215</div>
-                        <div class="text-mono" style="color: var(--muted); margin-top: 6px;">MON–SAT 8AM–6PM EAT</div>
-                    </a>
+                <a href="mailto:houseofazaani@gmail.com?subject=CFI%20Property%20Assessment%20Inquiry" class="channel-box">
+                    <span class="channel-tag">Official Email</span>
+                    <span class="channel-value-text" style="font-size: 14.5px;">houseofazaani@gmail.com</span>
+                    <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Blueprints &amp; Inquiries</span>
+                </a>
 
-                    <a href="mailto:houseofazaani@gmail.com?subject=CFI%20Evaluation%20Inquiry" class="channel-card-stationery">
-                        <div class="text-mono" style="color: var(--secondary-ink); font-weight: 700; margin-bottom: 4px;">OFFICIAL EMAIL</div>
-                        <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600;">houseofazaani@gmail.com</div>
-                        <div class="text-mono" style="color: var(--muted); margin-top: 6px;">BLUEPRINTS & RFPS</div>
-                    </a>
-
-                    <div class="channel-card-stationery">
-                        <div class="text-mono" style="color: var(--secondary-ink); font-weight: 700; margin-bottom: 4px;">RESEARCH LAB</div>
-                        <div style="font-family: var(--font-serif); font-size: 16px; font-weight: 600;">Nairobi, Kenya</div>
-                        <div class="text-mono" style="color: var(--muted); margin-top: 6px;">AZAANI DESIGN STUDIO</div>
-                    </div>
+                <div class="channel-box">
+                    <span class="channel-tag">Design Studio</span>
+                    <span class="channel-value-text">Nairobi, Kenya</span>
+                    <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Azaani Environmental Lab</span>
                 </div>
             </div>
 
-            <!-- Tab 2: Schedule Form -->
-            <div id="tabContentForm" style="display: none;">
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; margin-top: 20px;">
+                <h4 style="font-size: 16px; margin-bottom: 12px;">Or request a callback</h4>
                 <form id="consultationBookingForm">
-                    <div class="form-group-stationery">
-                        <label>FULL NAME</label>
-                        <input type="text" placeholder="e.g. Sarah Mwangi" required>
+                    <div style="margin-bottom: 14px;">
+                        <input type="text" placeholder="Your Full Name" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 14.5px;">
                     </div>
-                    <div class="form-group-stationery">
-                        <label>PROPERTY NAME & LOCATION</label>
-                        <input type="text" placeholder="e.g. Azure Heights, Westlands" required>
+                    <div style="margin-bottom: 14px;">
+                        <input type="text" placeholder="Property Name &amp; Location (e.g. Kilimani)" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 14.5px;">
                     </div>
-                    <div class="form-group-stationery">
-                        <label>PHONE / WHATSAPP</label>
-                        <input type="tel" placeholder="+254 7..." required>
+                    <div style="margin-bottom: 18px;">
+                        <input type="tel" placeholder="Your Phone / WhatsApp (+254 7...)" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 14.5px;">
                     </div>
-                    <button type="submit" class="btn btn-primary w-100" style="margin-top: 10px;">
-                        Transmit Inquiry to Lead Assessor &rarr;
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Submit Callback Request &rarr;
                     </button>
                 </form>
             </div>
+        </div>
+    </div>
 
-            <div style="border-top: 1px solid var(--hairline); padding-top: 16px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--muted);">
-                <span>CONFIDENTIAL & NDA PROTECTED</span>
-                <span>UNICEF CFI FRAMEWORK</span>
+    <!-- ======================================================================
+         CASE STUDY READER MODAL
+         ====================================================================== -->
+    <div id="articleModal" class="modal">
+        <div class="article-reader-box">
+            <button class="modal-close-btn" id="articleCloseBtn" aria-label="Close modal">&times;</button>
+            <div id="articleModalContent">
+                <!-- Dynamically populated from JS -->
             </div>
         </div>
     </div>
