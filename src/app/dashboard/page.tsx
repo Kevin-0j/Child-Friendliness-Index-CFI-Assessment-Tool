@@ -104,8 +104,10 @@ export default function Dashboard() {
         )}
       >
         <div className="p-6 flex items-center justify-between border-b border-slate-100">
-          <div className="flex items-center gap-2 font-bold text-xl text-slate-900">
-            ChildFriendly <span className="text-slate-400 font-medium text-sm">Portal</span>
+          <div className="flex items-center gap-2.5 font-bold text-xl text-slate-900">
+            <img src="/assets/logos/Azaani - Icon - Black.png" alt="Azaani" className="h-6 w-auto" />
+            <span>ChildFriendly<span className="text-rose-500">.</span></span>
+            <span className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Portal</span>
           </div>
           <button className="md:hidden text-slate-500" onClick={() => setIsMobileMenuOpen(false)}>
             <X size={20} />
@@ -132,7 +134,7 @@ export default function Dashboard() {
 
         <div className="p-4 border-t border-slate-100">
           <a
-            href="http://localhost:8080/"
+            href="/index.html"
             className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg border border-slate-200 text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors"
           >
             <ExternalLink size={16} />

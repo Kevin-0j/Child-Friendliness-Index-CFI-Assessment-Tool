@@ -2,51 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Evaluated Buildings Map - Child-Friendly Index</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .map-header {
-            padding: 80px 5% 40px;
-            background: #FAFAFA;
+            padding: 120px 5% 40px;
+            background: #FAF8F5;
             border-bottom: 1px solid var(--border-color);
+            text-align: center;
         }
         .search-container {
             max-width: 600px;
-            margin: 20px auto 0;
+            margin: 24px auto 0;
             position: relative;
         }
         .search-input {
             width: 100%;
             padding: 16px 24px;
-            border-radius: 30px;
-            border: 2px solid var(--border-color);
-            font-size: 16px;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--border-color);
+            font-size: 15.5px;
             font-family: var(--font-body);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
             outline: none;
             transition: all 0.3s;
+            background: white;
         }
         .search-input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(232, 93, 78, 0.15);
-        }
-        #map-container {
-            width: 100%;
-            height: calc(100vh - 250px);
-            min-height: 500px;
-        }
-        #map {
-            width: 100%;
-            height: 100%;
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px var(--gold-glow);
         }
         .not-found-msg {
             display: none;
             background: #FEF2F2;
             color: #991B1B;
             padding: 16px;
-            border-radius: 12px;
+            border-radius: 14px;
             margin-top: 16px;
             text-align: center;
             border: 1px solid #FCA5A5;
@@ -56,7 +51,7 @@
             display: inline-block;
             margin-top: 8px;
             color: #DC2626;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: underline;
             cursor: pointer;
         }
@@ -64,33 +59,38 @@
         /* Custom Marker Info Window */
         .gm-style .gm-style-iw-c {
             padding: 0 !important;
-            border-radius: 12px !important;
+            border-radius: 14px !important;
+            box-shadow: 0 16px 36px rgba(0,0,0,0.12) !important;
         }
         .gm-style .gm-style-iw-d {
             overflow: hidden !important;
         }
         .info-card {
-            padding: 20px;
+            padding: 22px;
             min-width: 250px;
+            font-family: var(--font-body);
         }
         .info-title {
             font-family: var(--font-heading);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 18px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: #121316;
         }
         .info-score {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            font-family: var(--font-display);
         }
         .info-status {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11.5px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .status-certified { background: #D1FAE5; color: #065F46; }
         .status-needs-work { background: #FEF3C7; color: #92400E; }
@@ -98,14 +98,14 @@
         /* Layout */
         .map-layout {
             display: flex;
-            height: calc(100vh - 250px);
-            min-height: 500px;
+            height: calc(100vh - 270px);
+            min-height: 520px;
         }
         .map-sidebar {
-            width: 350px;
+            width: 360px;
             background: white;
             border-right: 1px solid var(--border-color);
-            padding: 24px;
+            padding: 26px;
             overflow-y: auto;
             flex-shrink: 0;
         }
@@ -114,16 +114,19 @@
             height: 100%;
         }
         .building-list-item {
-            padding: 16px;
+            padding: 16px 18px;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 14px;
             margin-bottom: 12px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
+            background: #FAF9F7;
         }
         .building-list-item:hover {
-            border-color: var(--accent);
-            background: #FEF2F2;
+            border-color: var(--gold);
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
         @media (max-width: 768px) {
             .map-layout {
@@ -132,10 +135,10 @@
             }
             .map-sidebar {
                 width: 100%;
-                height: 300px;
+                height: 280px;
             }
             #map-container {
-                height: 500px;
+                height: 480px;
             }
         }
     </style>
@@ -143,33 +146,45 @@
 <body>
 
     <nav class="navbar scrolled">
-        <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">ChildFriendly.</a>
-        <div class="nav-links">
+        <a href="index.html" class="logo-brand">
+            <img src="assets/logos/Azaani - Icon - Black.png" alt="Azaani" class="logo-mark">
+            <span class="logo-text">ChildFriendly<span class="logo-dot">.</span></span>
+        </a>
+        <button class="mobile-menu-btn" id="mainMobileMenuBtn" aria-label="Toggle menu">&#9776;</button>
+        <div class="nav-links" id="mainNavLinks">
             <a href="index.html">Home</a>
-            <a href="map.html" class="active">Map</a>
-            <a href="#" onclick="document.getElementById('auth-modal').classList.add('active'); return false;" class="btn btn-primary">The Index Tool</a>
+            <a href="about.html">Philosophy</a>
+            <a href="index.html#insights">Insights</a>
+            <a href="index.html#child-perspective-simulator">Simulator</a>
+            <a href="map.html" class="active">Evaluated Map</a>
+            <a href="#" id="openToolBtn">Index Tool</a>
+            <a href="#" class="btn btn-primary open-contact-btn mobile-only-btn">Let's talk &rarr;</a>
+        </div>
+        <div class="nav-cta desktop-only">
+            <a href="#" class="btn btn-primary open-contact-btn">Let's talk &rarr;</a>
         </div>
     </nav>
 
-    <div class="map-header text-center">
+    <div class="map-header">
+        <span class="section-eyebrow">Interactive Space Explorer</span>
         <h1 class="section-title">Evaluated Buildings Map</h1>
-        <p class="section-subtitle">Search our database of certified buildings to see their Child-Friendly Index score.</p>
+        <p class="section-subtitle">Search our database of certified high-rises and community spaces across Nairobi.</p>
         
         <div class="search-container">
-            <input type="text" id="map-search" class="search-input" placeholder="Search our evaluated database (e.g. Pinecrest)...">
+            <input type="text" id="map-search" class="search-input" placeholder="Search by building name (e.g. Azure Heights, Pinecrest)...">
             <div id="not-found" class="not-found-msg">
-                This building hasn't been evaluated by us yet. <br>
-                <a href="#" id="request-eval-btn" class="btn-request">Request an evaluation from our experts</a>
+                This building hasn't been evaluated under the CFI standard yet. <br>
+                <a href="#" id="request-eval-btn" class="btn-request">Request an official evaluation from our experts</a>
             </div>
         </div>
     </div>
 
     <div class="map-layout">
         <div class="map-sidebar">
-            <h3 style="font-family: var(--font-heading); margin-bottom: 16px;">Evaluated Spaces</h3>
-            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Browse our database of certified and evaluated child-friendly buildings.</p>
+            <div style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">Evaluated Spaces</div>
+            <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 20px;">Click any property below to locate on map and inspect score breakdown.</p>
             <div id="building-list" class="building-list">
-                <div style="text-align:center; padding: 20px; color:#999;">Loading spaces...</div>
+                <div style="text-align:center; padding: 20px; color:#888;">Loading verified spaces...</div>
             </div>
         </div>
         <div id="map-container">
@@ -177,91 +192,233 @@
         </div>
     </div>
 
-    <!-- Auth Modal -->
-    <div id="auth-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="document.getElementById('auth-modal').classList.remove('active')">&times;</span>
-            <h3 style="margin-bottom:24px; font-family:var(--font-heading);">Assessor Login</h3>
-            <p style="color:var(--text-secondary); margin-bottom:20px;">Enter your 4-digit assessor passcode.</p>
-            <div class="form-group">
-                <input type="password" id="passcode-input" placeholder="Enter passcode" maxlength="4">
-                <p id="passcode-error" class="error-msg" style="display:none;">Invalid passcode.</p>
+    <!-- Professional Overhauled "Let's Talk" Modal -->
+    <div id="contactModal" class="modal">
+        <div class="contact-modal-box">
+            <span class="close-btn" id="contactCloseBtn">&times;</span>
+            <div class="contact-modal-header">
+                <div class="consult-eyebrow">
+                    <span class="pulse-dot"></span> DIRECT ADVISORY & AUDIT
+                </div>
+                <h2 class="contact-modal-title">Let's Build Spaces That Welcome Tomorrow</h2>
+                <p class="contact-modal-desc">
+                    Connect directly with our environmental design and child-friendliness auditors in Nairobi. We guide property developers, residential boards, and institutions across East Africa.
+                </p>
             </div>
-            <button class="btn btn-primary w-100" onclick="authenticate()">Authenticate</button>
+
+            <div class="modal-nav-tabs">
+                <button class="modal-tab-btn active" id="tabBtnChannels">
+                    <span>⚡</span> Instant Channels
+                </button>
+                <button class="modal-tab-btn" id="tabBtnForm">
+                    <span>📅</span> Schedule Audit Call
+                </button>
+            </div>
+
+            <div id="tabContentChannels">
+                <div class="channels-grid">
+                    <a href="https://wa.me/254733940215?text=Hello%20Azaani%20Team%2C%20I%20am%20interested%20in%20a%20Child-Friendly%20Index%20(CFI)%20assessment%20for%20our%20property." target="_blank" rel="noopener noreferrer" class="channel-card-link">
+                        <div class="channel-card highlight-wa">
+                            <div class="channel-icon-row">
+                                <span class="channel-icon">💬</span>
+                                <span class="channel-badge" style="background: #25D366; color: white;">Fastest Response</span>
+                            </div>
+                            <span class="channel-label">Direct WhatsApp</span>
+                            <span class="channel-value">+254 733 940 215</span>
+                            <span class="channel-subtext">Replies typically within 15 mins</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+254733940215" class="channel-card-link">
+                        <div class="channel-card">
+                            <div class="channel-icon-row">
+                                <span class="channel-icon">📞</span>
+                                <span class="channel-badge">Mon–Sat 8AM–6PM</span>
+                            </div>
+                            <span class="channel-label">Lead Assessor Line</span>
+                            <span class="channel-value">+254 733 940 215</span>
+                            <span class="channel-subtext">Direct to Kevin / Azaani Advisory</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:houseofazaani@gmail.com?subject=Child-Friendly%20Index%20Assessment%20Inquiry" class="channel-card-link">
+                        <div class="channel-card">
+                            <div class="channel-icon-row">
+                                <span class="channel-icon">✉️</span>
+                                <span class="channel-badge">Formal Inquiries</span>
+                            </div>
+                            <span class="channel-label">Official Email</span>
+                            <span class="channel-value">houseofazaani@gmail.com</span>
+                            <span class="channel-subtext">Send RFP documentation & blueprints</span>
+                        </div>
+                    </a>
+
+                    <div class="channel-card">
+                        <div class="channel-icon-row">
+                            <span class="channel-icon">📍</span>
+                            <span class="channel-badge">East Africa</span>
+                        </div>
+                        <span class="channel-label">Research Studio</span>
+                        <span class="channel-value">Nairobi, Kenya</span>
+                        <span class="channel-subtext">Azaani Design & Field Research Lab</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tabContentForm" style="display: none;">
+                <form id="consultationBookingForm" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-control-custom" placeholder="e.g. Sarah Mwangi" required>
+                        </div>
+                        <div class="form-group-custom">
+                            <label>Organization / Role</label>
+                            <input type="text" class="form-control-custom" placeholder="e.g. Developer / Property Mgr">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-custom">
+                            <label>Property Name & Location *</label>
+                            <input type="text" class="form-control-custom" placeholder="e.g. Azure Heights, Westlands" required>
+                        </div>
+                        <div class="form-group-custom">
+                            <label>Phone / WhatsApp Number *</label>
+                            <input type="tel" class="form-control-custom" placeholder="+254 7..." required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100" style="margin-top: 10px;">
+                        Request Assessment Consultation &rarr;
+                    </button>
+                </form>
+                <div id="bookingSuccessMsg" style="display: none; text-align: center; padding: 30px 10px;">
+                    <div style="font-size: 44px; margin-bottom: 12px;">✅</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Inquiry Dispatched to Senior Assessor</h3>
+                    <p style="color: var(--text-secondary); font-size: 14.5px; line-height: 1.6; max-width: 480px; margin: 0 auto;">
+                        Thank you. We will contact you via phone/WhatsApp within 2 hours.
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-trust-footer">
+                <div class="trust-item"><span>🛡️</span> Confidential & NDA Protected</div>
+                <div class="trust-item"><span>⚡</span> 2-Hour Response Time</div>
+                <div class="trust-item"><span>📐</span> UNICEF CFI Methodology</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Login Modal -->
+    <div id="toolLoginModal" class="modal">
+        <div class="contact-modal-box" style="max-width: 460px;">
+            <span class="close-btn tool-close-btn">&times;</span>
+            <div class="consult-eyebrow" style="margin-bottom: 10px;"><span>🔒</span> ACCREDITED ACCESS ONLY</div>
+            <h2 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 8px;">Access Index Tool</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
+                Authorized access for government auditors, property managers, and certified CFI evaluators.
+            </p>
+            <div class="form-group-custom" style="margin-bottom: 20px;">
+                <label>Access Code</label>
+                <input type="password" id="toolPassword" class="form-control-custom" placeholder="Enter Access Code (Default: 0000)">
+                <p id="loginError" class="error-msg" style="display:none; color: #DC2626; font-size: 13px; margin-top: 6px;">
+                    Invalid access code. Please try again.
+                </p>
+            </div>
+            <button id="submitPassword" class="btn btn-primary w-100 btn-lg">Authenticate &rarr;</button>
         </div>
     </div>
 
     <script src="js/main.js"></script>
     <script>
-        // Init Map
         let map;
         let markers = [];
         let infoWindow;
-        
+        let allBuildings = [];
+
         async function initMap() {
+            if (typeof google === 'undefined' || !google.maps) return;
             const { Map, InfoWindow } = await google.maps.importLibrary("maps");
             const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
             
             map = new Map(document.getElementById("map"), {
-                center: { lat: -1.2921, lng: 36.8219 }, // Default to Nairobi
+                center: { lat: -1.2921, lng: 36.8219 }, // Nairobi
                 zoom: 12,
-                mapId: "DEMO_MAP_ID", // Required for Advanced Markers
-                disableDefaultUI: false, // Enable UI to allow satellite switching
+                mapId: "DEMO_MAP_ID",
+                disableDefaultUI: false,
                 mapTypeControl: true,
                 zoomControl: true,
             });
 
             infoWindow = new InfoWindow();
 
-            // Fetch buildings from our Next.js API
             try {
                 const res = await fetch("/api/buildings");
-                const buildings = await res.json();
+                allBuildings = await res.json();
                 
                 const listContainer = document.getElementById("building-list");
-                listContainer.innerHTML = ''; // Clear loading
+                listContainer.innerHTML = "";
 
-                if (buildings.length === 0) {
-                    listContainer.innerHTML = '<div style="padding: 20px; color:#999;">No buildings evaluated yet.</div>';
+                if (allBuildings.length === 0) {
+                    listContainer.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">No evaluated spaces found.</div>';
                 }
 
-                buildings.forEach(building => {
+                allBuildings.forEach(building => {
                     if (building.location && building.location.lat) {
                         createMarker(building, AdvancedMarkerElement, PinElement);
                         
-                        // Add to sidebar list
-                        const isCertified = building.score >= 80;
-                        const div = document.createElement("div");
-                        div.className = "building-list-item";
-                        div.innerHTML = `
-                            <div style="font-weight: 600; margin-bottom: 4px;">${building.buildingName || building.building}</div>
-                            <div style="font-size: 13px; color: #666;">Score: <strong style="color: ${isCertified ? '#10B981' : '#F59E0B'}">${building.score}/125</strong></div>
+                        // Add to sidebar
+                        const item = document.createElement("div");
+                        item.className = "building-list-item";
+                        
+                        let badgeColor = "#EF4444";
+                        if (building.score >= 100) badgeColor = "#10B981";
+                        else if (building.score >= 75) badgeColor = "#3B82F6";
+                        else if (building.score >= 50) badgeColor = "#F59E0B";
+
+                        item.innerHTML = `
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+                                <div style="font-weight:700; font-size:15px; color:#121316;">${building.buildingName || building.building}</div>
+                                <span style="font-size:12px; font-weight:800; color:${badgeColor}; background:${badgeColor}18; padding:2px 8px; border-radius:12px;">${building.score}/125</span>
+                            </div>
+                            <div style="font-size:12px; color:#777;">Role: ${building.role || "Institutional"} • ${building.date || "Recent"}</div>
                         `;
-                        div.onclick = () => {
-                            const match = markers.find(m => m.data.id === building.id);
-                            if (match) {
-                                map.panTo(match.marker.position);
-                                map.setZoom(16);
-                                google.maps.event.trigger(match.marker, 'click');
+
+                        item.addEventListener("click", () => {
+                            map.panTo(building.location);
+                            map.setZoom(16);
+                            const m = markers.find(mark => mark.data.id === building.id);
+                            if (m) {
+                                google.maps.event.trigger(m.marker, 'click');
                             }
-                        };
-                        listContainer.appendChild(div);
+                        });
+
+                        listContainer.appendChild(item);
                     }
                 });
             } catch (err) {
                 console.error("Could not load buildings", err);
             }
 
-            // Setup Search
             setupSearch();
         }
 
         function createMarker(building, AdvancedMarkerElement, PinElement) {
-            const isCertified = building.score >= 80;
+            let bgColor = "#EF4444";
+            let borderColor = "#B91C1C";
+            let statusText = "Action Required";
+            let statusClass = "status-needs-work";
+
+            if (building.score >= 100) {
+                bgColor = "#10B981"; borderColor = "#047857"; statusText = "Highly Friendly"; statusClass = "status-certified";
+            } else if (building.score >= 75) {
+                bgColor = "#3B82F6"; borderColor = "#1D4ED8"; statusText = "Moderately Friendly"; statusClass = "status-certified";
+            } else if (building.score >= 50) {
+                bgColor = "#F59E0B"; borderColor = "#B45309"; statusText = "Low Friendliness";
+            }
             
             const pin = new PinElement({
-                background: isCertified ? "#10B981" : "#F59E0B",
-                borderColor: isCertified ? "#047857" : "#B45309",
+                background: bgColor,
+                borderColor: borderColor,
                 glyphColor: "#ffffff",
             });
 
@@ -277,9 +434,9 @@
                     <div class="info-card">
                         <div class="info-title">${building.buildingName || building.building}</div>
                         <p style="color:#666; font-size:13px; margin-bottom:12px;">Evaluated on ${building.date || new Date().toISOString().split('T')[0]}</p>
-                        <div class="info-score" style="color: ${isCertified ? '#10B981' : '#F59E0B'}">${building.score}<span style="font-size:14px; color:#999; font-weight:normal;">/125</span></div>
-                        <div class="info-status ${isCertified ? 'status-certified' : 'status-needs-work'}">
-                            ${isCertified ? 'Highly Child-Friendly' : 'Needs Improvement'}
+                        <div class="info-score" style="color: ${bgColor}">${building.score}<span style="font-size:14px; color:#999; font-weight:normal;">/125</span></div>
+                        <div class="info-status ${statusClass}" style="background-color: ${bgColor}22; color: ${bgColor};">
+                            ${statusText}
                         </div>
                     </div>
                 `;
@@ -296,12 +453,12 @@
         function setupSearch() {
             const searchInput = document.getElementById("map-search");
             const notFound = document.getElementById("not-found");
-            
             let timeout;
+
             searchInput.addEventListener("input", (e) => {
                 clearTimeout(timeout);
                 notFound.style.display = 'none';
-                infoWindow.close();
+                if (infoWindow) infoWindow.close();
                 
                 const query = e.target.value.toLowerCase().trim();
                 if (!query) {
@@ -321,45 +478,14 @@
                         google.maps.event.trigger(match.marker, 'click');
                     } else {
                         notFound.style.display = 'block';
-                        // Preload email template
-                        const buildingSearch = encodeURIComponent(e.target.value);
-                        const subject = encodeURIComponent(`Evaluation Request: ${e.target.value}`);
-                        const body = encodeURIComponent(`Hello Child Friendly Operators,
-
-I am writing to request a formal evaluation for the following building/space, as it does not currently appear on your evaluated map.
-
-Requested Space: "${e.target.value}"
-
-Please contact me with the next steps to begin the certification process.
-
-Contact Information
--------------------
-Company/Organization: [Enter Company Name]
-Contact Person: [Enter Your Name]
-Phone Number: [Enter Phone Number]
-City/Location: [Enter City/Location]
-
-Thank you,
-[Your Name]`);
+                        const subject = encodeURIComponent(`CFI Evaluation Request: ${e.target.value}`);
+                        const body = encodeURIComponent(`Hello Azaani / Child-Friendly Index Team,\n\nI would like to request an on-site evaluation for:\n\nProperty Name: "${e.target.value}"\nLocation: [Enter Location in Nairobi]\nContact Person: [Your Name]\nPhone: [Your Phone]\n\nBest regards`);
                         document.getElementById("request-eval-btn").href = `mailto:houseofazaani@gmail.com?subject=${subject}&body=${body}`;
                     }
-                }, 500);
+                }, 400);
             });
         }
-
-        // Auth Logic for the modal in map.html
-        function authenticate() {
-            const passcode = document.getElementById("passcode-input").value;
-            const errorMsg = document.getElementById("passcode-error");
-            if (passcode === "0000") {
-                window.location.href = "/dashboard";
-            } else {
-                errorMsg.style.display = "block";
-                setTimeout(() => errorMsg.style.display = "none", 2000);
-            }
-        }
     </script>
-    <!-- Use the user's provided API key -->
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwHEPwzo7KylXwnoyK2cZ_ieZCWHd424&callback=initMap&v=weekly"></script>
 </body>
 </html>

@@ -47,7 +47,7 @@ export default function ResultsPage() {
         date: new Date().toISOString().split('T')[0]
       };
 
-      fetch("http://localhost:3000/api/buildings", {
+      fetch("/api/buildings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(report)
