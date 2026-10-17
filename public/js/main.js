@@ -256,10 +256,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================================================
+    // 6. TOOL LOGIN MODAL (Access Code: 0000 or child2024 -> /dashboard)
+    // ==========================================================================
+    const toolLoginModal = document.getElementById('toolLoginModal');
+    const openToolBtns = document.querySelectorAll('#openToolBtn, .open-tool-trigger');
+    const toolLoginCloseBtn = document.getElementById('toolLoginCloseBtn');
+    const submitPasswordBtn = document.getElementById('submitPassword');
+    const toolPasswordInput = document.getElementById('toolPassword');
+    const loginError = document.getElementById('loginError');
+
+    openToolBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (toolLoginModal) {
+                toolLoginModal.classList.add('active');
+                if (toolPasswordInput) {
+                    toolPasswordInput.value = '';
+                    toolPasswordInput.focus();
+                }
+                if (loginError) loginError.style.display = 'none';
+            }
+        });
+    });
+
+    if (toolLoginCloseBtn && toolLoginModal) {
+        toolLoginCloseBtn.addEventListener('click', () => toolLoginModal.classList.remove('active'));
+    }
+
+    function authenticateTool() {
+        if (!toolPasswordInput) return;
+        const code = toolPasswordInput.value.trim();
+        if (code === '0000' || code === 'child2024') {
+            window.location.href = '/dashboard';
+        } else {
+            if (loginError) loginError.style.display = 'block';
+        }
+    }
+
+    if (submitPasswordBtn) {
+        submitPasswordBtn.addEventListener('click', authenticateTool);
+    }
+
+    if (toolPasswordInput) {
+        toolPasswordInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') authenticateTool();
+        });
+    }
+
     // Modal click outside to close
     window.addEventListener('click', (e) => {
         if (e.target === contactModal) contactModal.classList.remove('active');
         if (e.target === articleModal) articleModal.classList.remove('active');
+        if (e.target === toolLoginModal) toolLoginModal.classList.remove('active');
     });
 
     // Escape key closes modals
@@ -267,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') {
             if (contactModal) contactModal.classList.remove('active');
             if (articleModal) articleModal.classList.remove('active');
+            if (toolLoginModal) toolLoginModal.classList.remove('active');
         }
     });
 });

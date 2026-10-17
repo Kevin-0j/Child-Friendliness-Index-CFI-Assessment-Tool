@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Child-Friendly Index (CFI) — Architectural Safety & Design for Children</title>
+    <title>Child Friendly Index | Creating Spaces for Tomorrow</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- ======================================================================
-         CLEAN SPACIOUS NAVIGATION BAR
+         CLEAN ORIGINAL NAVIGATION BAR
          ====================================================================== -->
     <nav class="navbar">
-        <a href="index.html" class="nav-brand">
-            <img src="assets/logos/Azaani - Icon - Black.png" alt="Azaani" class="nav-logo-img">
-            <span class="nav-logo-text">ChildFriendly<span>.</span></span>
-        </a>
+        <a href="index.html" class="logo">ChildFriendly<span>.</span></a>
 
         <div class="nav-links" id="mainNavLinks">
-            <a href="#overview">Overview</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#perspective">Perspective</a>
             <a href="#case-studies">Case Studies</a>
-            <a href="#standards">Standards</a>
             <a href="#quick-check">60s Check</a>
-            <a href="about.html">Philosophy</a>
-            <a href="map.html">Network Map</a>
+            <a href="#" id="openToolBtn">The Index Tool</a>
         </div>
 
         <div class="nav-controls" style="display: flex; align-items: center; gap: 14px;">
@@ -37,29 +34,29 @@
     </nav>
 
     <!-- ======================================================================
-         SECTION 1: HERO (Simple, Clear, Humane)
+         SECTION 1: HERO (Original Headline & Clean Framing)
          ====================================================================== -->
     <header class="hero container" id="overview">
         <div class="hero-content">
-            <span class="badge-tag">Azaani Environmental Research &bull; Nairobi</span>
+            <span class="badge-tag">Child-Friendliness Index &bull; Nairobi &amp; East Africa</span>
             
             <h1 class="hero-title">
-                Buildings are built for adults. <span class="highlight">We make them safe for children.</span>
+                The autonomous standard for <span class="highlight">child-friendly</span> environments.
             </h1>
 
             <p class="hero-subtitle">
-                The Child-Friendliness Index (CFI) is an architectural framework that helps developers and property managers benchmark safety, play spaces, and comfort in high-rise residences across East Africa.
+                We assess and certify spaces to ensure they are safe, engaging, and nurturing for children. Powering the way developers, architects, and estate managers design, build, and operate.
             </p>
 
             <div class="hero-actions">
                 <a href="#" class="btn btn-primary open-contact-btn">Book an Assessment &rarr;</a>
-                <a href="#quick-check" class="btn btn-secondary">Run 60s Check &darr;</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn more &darr;</a>
             </div>
         </div>
 
         <div class="hero-visual">
             <div class="hero-image-wrap">
-                <img src="images/insight-courtyard.jpg" alt="Child-friendly family residential courtyard in Nairobi" loading="eager">
+                <img src="images/insight-courtyard.jpg" alt="Child-friendly residential courtyard in Nairobi" loading="eager">
             </div>
             <div class="hero-badge-float">
                 <div class="hero-badge-icon">&#10003;</div>
@@ -72,7 +69,42 @@
     </header>
 
     <!-- ======================================================================
-         SECTION 2: PERSPECTIVE SHIFT (Adult 170cm vs Child 95cm)
+         SECTION 2: THE PROBLEM / SOLUTION (Original 3 Core Pillars)
+         ====================================================================== -->
+    <section class="section" id="how-it-works" style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag">Our Approach</span>
+                <h2 class="section-title">Is your space truly welcoming? <br><span class="highlight">We make sure it is.</span></h2>
+                <p class="section-subtitle">
+                    Standard building codes verify structural mass. We benchmark the daily ergonomic and developmental reality of children living in high-density environments.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">01</div>
+                    <h3>Comprehensive Assessment</h3>
+                    <p>Our proprietary Child Friendly Index evaluates safety, accessibility, acoustic comfort, and play infrastructure across your entire facility.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-icon">02</div>
+                    <h3>Expert Guidance</h3>
+                    <p>Even if a building doesn't meet the index initially, our architectural team provides step-by-step guidance on practical retrofits to achieve compliance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-icon">03</div>
+                    <h3>Continuous Support</h3>
+                    <p>We don't just assess; we partner with property owners and managers to maintain long-term safety standards and enhance family tenant retention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: PERSPECTIVE SHIFT (Adult 170cm vs Child 95cm)
          ====================================================================== -->
     <section class="section" id="perspective">
         <div class="container">
@@ -143,7 +175,7 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 3: CASE STUDIES & FIELD INSIGHTS (Staroot-Inspired Cards)
+         SECTION 4: CASE STUDIES & FIELD INSIGHTS (Staroot-Inspired Cards)
          ====================================================================== -->
     <section class="section" id="case-studies" style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
         <div class="container">
@@ -236,7 +268,7 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 4: KEY STANDARDS & MEASUREMENTS (Big, Easy Numbers)
+         SECTION 5: KEY STANDARDS & MEASUREMENTS (Big, Easy Numbers)
          ====================================================================== -->
     <section class="section" id="standards">
         <div class="container">
@@ -277,7 +309,7 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 5: 60-SECOND QUICK SPACE AUDIT
+         SECTION 6: 60-SECOND QUICK SPACE AUDIT
          ====================================================================== -->
     <section class="section" id="quick-check" style="background: var(--bg-subtle);">
         <div class="container">
@@ -354,31 +386,31 @@
     </section>
 
     <!-- ======================================================================
-         CLEAN FOOTER
+         CLEAN ORIGINAL-STYLE FOOTER
          ====================================================================== -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div style="max-width: 380px;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-                        <img src="assets/logos/Azaani - Icon - White.png" alt="Azaani" style="height: 28px; width: auto;">
-                        <span style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #FFFFFF;">
+                    <div style="margin-bottom: 14px;">
+                        <span style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #FFFFFF;">
                             ChildFriendly<span style="color: var(--accent);">.</span>
                         </span>
                     </div>
                     <p style="color: #A1A1AA; font-size: 14.5px; line-height: 1.6;">
-                        Child-Friendliness Index (CFI) by Azaani Environmental Research. Benchmarking pediatric safety and liveability in residential towers across Nairobi, Kenya.
+                        Setting the autonomous standard for child-friendly environments. Benchmarking pediatric safety and liveability in residential towers across Nairobi, Kenya.
                     </p>
                 </div>
 
                 <div>
-                    <div style="font-weight: 700; margin-bottom: 14px; font-size: 15px;">Quick Navigation</div>
+                    <div style="font-weight: 700; margin-bottom: 14px; font-size: 15px;">Navigation</div>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="#overview">Overview</a>
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="#how-it-works">How It Works</a>
                         <a href="#perspective">Perspective Shift</a>
-                        <a href="#case-studies">Nairobi Case Studies</a>
-                        <a href="#standards">Pediatric Dimensions</a>
-                        <a href="#quick-check">60s Space Check</a>
+                        <a href="#case-studies">Case Studies</a>
+                        <a href="#" class="open-tool-trigger">The Index Tool</a>
                     </div>
                 </div>
 
@@ -396,7 +428,7 @@
             </div>
 
             <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13.5px; color: #71717A;">
-                <span>&copy; <script>document.write(new Date().getFullYear())</script> Child-Friendliness Index (CFI) &bull; Azaani. All rights reserved.</span>
+                <span>&copy; <script>document.write(new Date().getFullYear())</script> Child Friendly Index. All rights reserved.</span>
                 <span>Aligned with UNICEF Child-Friendly Cities Framework</span>
             </div>
         </div>
@@ -435,9 +467,9 @@
                 </a>
 
                 <div class="channel-box">
-                    <span class="channel-tag">Design Studio</span>
+                    <span class="channel-tag">Research Lab</span>
                     <span class="channel-value-text">Nairobi, Kenya</span>
-                    <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Azaani Environmental Lab</span>
+                    <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Child-Friendly Design Lab</span>
                 </div>
             </div>
 
@@ -458,6 +490,30 @@
                     </button>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <!-- ======================================================================
+         ORIGINAL TOOL LOGIN MODAL (Access Code: 0000)
+         ====================================================================== -->
+    <div id="toolLoginModal" class="modal">
+        <div class="modal-content-clean" style="max-width: 440px; text-align: center;">
+            <button class="modal-close-btn" id="toolLoginCloseBtn" aria-label="Close modal">&times;</button>
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">
+                &#128274;
+            </div>
+            <h2 style="font-size: 24px; margin-bottom: 8px;">Access Index Tool</h2>
+            <p style="font-size: 14.5px; color: var(--text-secondary); margin-bottom: 22px;">
+                This workspace is for authorized assessors and property auditors.
+            </p>
+            <div style="margin-bottom: 16px;">
+                <input type="password" id="toolPassword" placeholder="Enter Access Code (0000)" style="width: 100%; padding: 14px 18px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 16px; text-align: center; letter-spacing: 2px;">
+                <p id="loginError" style="display: none; color: var(--accent); font-size: 13px; font-weight: 600; margin-top: 8px;">Invalid access code. Please try again.</p>
+            </div>
+            <button id="submitPassword" class="btn btn-primary" style="width: 100%;">Authenticate &amp; Enter &rarr;</button>
+            <p style="margin-top: 16px; font-size: 12px; color: var(--text-muted);">
+                Authorized Assessor Access Code: <strong>0000</strong>
+            </p>
         </div>
     </div>
 
