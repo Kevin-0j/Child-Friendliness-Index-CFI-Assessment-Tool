@@ -951,4 +951,130 @@ footer {
     .article-reader-box {
         padding: 24px;
     }
+
+    /* Mobile Tooltips & Hotspots */
+    .sim-interactive-pin {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .pin-tip {
+        width: calc(100vw - 64px);
+        max-width: 300px;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Mobile Collapsible Sections */
+    .mobile-collapse-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--bg-subtle);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-full);
+        padding: 6px 14px;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        cursor: pointer;
+        margin-top: 14px;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-collapse-btn:hover {
+        background: var(--border);
+        color: var(--text-primary);
+    }
+
+    .section-collapsible-body {
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        max-height: 3000px;
+        opacity: 1;
+        overflow: visible;
+    }
+
+    .section-collapsible-body.is-collapsed {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+        margin-top: 0 !important;
+    }
+
+    /* Prevent bottom dock from covering footer */
+    body {
+        padding-bottom: 76px;
+    }
 }
+
+/* Desktop Defaults for Mobile-Only Features */
+.mobile-collapse-btn {
+    display: none;
+}
+
+/* ==========================================================================
+   MOBILE FLOATING BOTTOM ACTION DOCK
+   ========================================================================== */
+.mobile-bottom-dock {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-dock {
+        display: flex;
+        position: fixed;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        background: rgba(24, 24, 27, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-full);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        padding: 6px 10px;
+        z-index: 1500;
+        align-items: center;
+        justify-content: space-around;
+        gap: 6px;
+    }
+
+    .mobile-dock-btn {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px 12px;
+        border-radius: var(--radius-full);
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-size: 13px;
+        font-weight: 600;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+    }
+
+    .mobile-dock-btn:hover,
+    .mobile-dock-btn:active {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-dock-btn.dock-accent {
+        background: var(--accent);
+        color: #FFFFFF;
+        box-shadow: 0 4px 12px rgba(232, 93, 78, 0.35);
+    }
+
+    .mobile-dock-btn.dock-wa {
+        color: #4ADE80;
+    }
+}
+

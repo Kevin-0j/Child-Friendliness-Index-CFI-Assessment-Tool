@@ -79,25 +79,30 @@
                 <p class="section-subtitle">
                     Standard building codes verify structural mass. We benchmark the daily ergonomic and developmental reality of children living in high-density environments.
                 </p>
+                <button class="mobile-collapse-btn" data-target="#howItWorksBody" aria-expanded="true">
+                    <span class="collapse-icon">▲</span> <span class="collapse-label">Collapse Section</span>
+                </button>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-card-icon">01</div>
-                    <h3>Comprehensive Assessment</h3>
-                    <p>Our proprietary Child Friendly Index evaluates safety, accessibility, acoustic comfort, and play infrastructure across your entire facility.</p>
-                </div>
+            <div class="section-collapsible-body" id="howItWorksBody">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">01</div>
+                        <h3>Comprehensive Assessment</h3>
+                        <p>Our proprietary Child Friendly Index evaluates safety, accessibility, acoustic comfort, and play infrastructure across your entire facility.</p>
+                    </div>
 
-                <div class="feature-card">
-                    <div class="feature-card-icon">02</div>
-                    <h3>Expert Guidance</h3>
-                    <p>Even if a building doesn't meet the index initially, our architectural team provides step-by-step guidance on practical retrofits to achieve compliance.</p>
-                </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">02</div>
+                        <h3>Expert Guidance</h3>
+                        <p>Even if a building doesn't meet the index initially, our architectural team provides step-by-step guidance on practical retrofits to achieve compliance.</p>
+                    </div>
 
-                <div class="feature-card">
-                    <div class="feature-card-icon">03</div>
-                    <h3>Continuous Support</h3>
-                    <p>We don't just assess; we partner with property owners and managers to maintain long-term safety standards and enhance family tenant retention.</p>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">03</div>
+                        <h3>Continuous Support</h3>
+                        <p>We don't just assess; we partner with property owners and managers to maintain long-term safety standards and enhance family tenant retention.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,62 +119,67 @@
                 <p class="section-subtitle">
                     What looks harmless to an adult can be an immediate hazard to a toddler. Toggle below to compare the adult view with the child's perspective.
                 </p>
+                <button class="mobile-collapse-btn" data-target="#perspectiveBody" aria-expanded="true">
+                    <span class="collapse-icon">▲</span> <span class="collapse-label">Collapse Section</span>
+                </button>
             </div>
 
-            <div class="simulator-wrap">
-                <div class="sim-switch-bar">
-                    <div class="sim-toggle-pill">
-                        <button class="sim-toggle-btn active" id="btnAdultView" data-view="adult">Adult View (170cm)</button>
-                        <button class="sim-toggle-btn" id="btnChildView" data-view="child">Child View (95cm)</button>
-                    </div>
+            <div class="section-collapsible-body" id="perspectiveBody">
+                <div class="simulator-wrap">
+                    <div class="sim-switch-bar">
+                        <div class="sim-toggle-pill">
+                            <button class="sim-toggle-btn active" id="btnAdultView" data-view="adult">Adult View (170cm)</button>
+                            <button class="sim-toggle-btn" id="btnChildView" data-view="child">Child View (95cm)</button>
+                        </div>
 
-                    <div style="display: flex; align-items: center; gap: 20px;">
-                        <span id="simEyeLabel" style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">
-                            Adult Perspective: View is clear and expansive.
-                        </span>
-                        <div style="background: var(--bg-subtle); padding: 6px 14px; border-radius: var(--radius-full); font-size: 13.5px; font-weight: 700;">
-                            Safety Score: <span id="simScoreNum" style="color: var(--accent);">N/A (Adult)</span>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <span id="simEyeLabel" style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">
+                                Adult Perspective: View is clear and expansive.
+                            </span>
+                            <div style="background: var(--bg-subtle); padding: 6px 14px; border-radius: var(--radius-full); font-size: 13.5px; font-weight: 700;">
+                                Safety Score: <span id="simScoreNum" style="color: var(--accent);">N/A (Adult)</span>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="sim-image-stage" id="simStageBox">
+                        <img src="images/insight-balcony.jpg" alt="Balcony safety assessment" id="simStageImg">
+
+                        <!-- Hotspot 1: Climbable Slats -->
+                        <div class="sim-interactive-pin" style="top: 50%; left: 54%; display: none;" data-points="20">
+                            !
+                            <div class="pin-tip">
+                                <strong>Hazard: Climbable Horizontal Slats</strong><br>
+                                Rungs act as a ladder for toddlers.<br>
+                                <span style="color: #FCD34D;">Click to apply vertical glass shield (+20 pts)</span>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 2: Glass Markings -->
+                        <div class="sim-interactive-pin" style="top: 36%; right: 26%; display: none;" data-points="20">
+                            !
+                            <div class="pin-tip">
+                                <strong>Hazard: Unmarked Low Glass</strong><br>
+                                Toddlers run into unmarked transparent panes.<br>
+                                <span style="color: #FCD34D;">Click to apply visual safety decals (+20 pts)</span>
+                            </div>
+                        </div>
+
+                        <!-- Hotspot 3: Balcony Door Lock -->
+                        <div class="sim-interactive-pin" style="top: 58%; right: 12%; display: none;" data-points="20">
+                            !
+                            <div class="pin-tip">
+                                <strong>Hazard: Low Door Latch</strong><br>
+                                Unmonitored child access to high-rise balcony.<br>
+                                <span style="color: #FCD34D;">Click to add 150cm safety latch (+20 pts)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 18px; font-size: 14px; color: var(--text-muted); text-align: center;">
+                        Tip: Switch to <strong>Child View</strong> and click the red alert markers to apply safety retrofits in real time.
+                    </p>
                 </div>
-
-                <div class="sim-image-stage" id="simStageBox">
-                    <img src="images/insight-balcony.jpg" alt="Balcony safety assessment" id="simStageImg">
-
-                    <!-- Hotspot 1: Climbable Slats -->
-                    <div class="sim-interactive-pin" style="top: 50%; left: 54%; display: none;" data-points="20">
-                        !
-                        <div class="pin-tip">
-                            <strong>Hazard: Climbable Horizontal Slats</strong><br>
-                            Rungs act as a ladder for toddlers.<br>
-                            <span style="color: #FCD34D;">Click to apply vertical glass shield (+20 pts)</span>
-                        </div>
-                    </div>
-
-                    <!-- Hotspot 2: Glass Markings -->
-                    <div class="sim-interactive-pin" style="top: 36%; right: 26%; display: none;" data-points="20">
-                        !
-                        <div class="pin-tip">
-                            <strong>Hazard: Unmarked Low Glass</strong><br>
-                            Toddlers run into unmarked transparent panes.<br>
-                            <span style="color: #FCD34D;">Click to apply visual safety decals (+20 pts)</span>
-                        </div>
-                    </div>
-
-                    <!-- Hotspot 3: Balcony Door Lock -->
-                    <div class="sim-interactive-pin" style="top: 58%; right: 12%; display: none;" data-points="20">
-                        !
-                        <div class="pin-tip">
-                            <strong>Hazard: Low Door Latch</strong><br>
-                            Unmonitored child access to high-rise balcony.<br>
-                            <span style="color: #FCD34D;">Click to add 150cm safety latch (+20 pts)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <p style="margin-top: 18px; font-size: 14px; color: var(--text-muted); text-align: center;">
-                    Tip: Switch to <strong>Child View</strong> and click the red alert markers to apply safety retrofits in real time.
-                </p>
             </div>
         </div>
     </section>
@@ -185,81 +195,86 @@
                 <p class="section-subtitle">
                     Practical lessons from over 40 audits in Kilimani, Westlands, and Kileleshwa. Real spaces, real solutions.
                 </p>
+                <button class="mobile-collapse-btn" data-target="#caseStudiesBody" aria-expanded="true">
+                    <span class="collapse-icon">▲</span> <span class="collapse-label">Collapse Section</span>
+                </button>
             </div>
 
-            <div class="insights-grid">
-                <!-- Card 1 -->
-                <div class="insight-card" data-article="balcony">
-                    <div class="insight-card-media">
-                        <img src="images/insight-balcony.jpg" alt="Balcony safety in high-rise Nairobi apartment" loading="lazy">
-                        <span class="insight-badge-overlay">Safety &bull; 18 Floors</span>
-                    </div>
-                    <div class="insight-card-body">
-                        <div class="insight-category-tag">Balcony Ergonomics</div>
-                        <h3 class="insight-card-title">The 110cm Blind Spot: Why Standard Balustrades Fail Children</h3>
-                        <p class="insight-card-snippet">
-                            Over 70% of audited balconies have horizontal railings that double as toddler climbing ladders. Here is how modern vertical glass upgrades solve this safely without blocking views.
-                        </p>
-                        <div class="insight-card-footer">
-                            <span>5 min read</span>
-                            <span class="insight-read-link">Read Case Study &rarr;</span>
+            <div class="section-collapsible-body" id="caseStudiesBody">
+                <div class="insights-grid">
+                    <!-- Card 1 -->
+                    <div class="insight-card" data-article="balcony">
+                        <div class="insight-card-media">
+                            <img src="images/insight-balcony.jpg" alt="Balcony safety in high-rise Nairobi apartment" loading="lazy">
+                            <span class="insight-badge-overlay">Safety &bull; 18 Floors</span>
+                        </div>
+                        <div class="insight-card-body">
+                            <div class="insight-category-tag">Balcony Ergonomics</div>
+                            <h3 class="insight-card-title">The 110cm Blind Spot: Why Standard Balustrades Fail Children</h3>
+                            <p class="insight-card-snippet">
+                                Over 70% of audited balconies have horizontal railings that double as toddler climbing ladders. Here is how modern vertical glass upgrades solve this safely without blocking views.
+                            </p>
+                            <div class="insight-card-footer">
+                                <span>5 min read</span>
+                                <span class="insight-read-link">Read Case Study &rarr;</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="insight-card" data-article="courtyard">
-                    <div class="insight-card-media">
-                        <img src="images/insight-courtyard.jpg" alt="Courtyard play area for families" loading="lazy">
-                        <span class="insight-badge-overlay">Family ROI &bull; Retention</span>
-                    </div>
-                    <div class="insight-card-body">
-                        <div class="insight-category-tag">Community Architecture</div>
-                        <h3 class="insight-card-title">The 22% Rental Premium: Why Family-First Developments Win</h3>
-                        <p class="insight-card-snippet">
-                            Properties with dedicated, car-free courtyards retain tenant families twice as long as adult-only designs, delivering proven long-term yields for property owners.
-                        </p>
-                        <div class="insight-card-footer">
-                            <span>4 min read</span>
-                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                    <!-- Card 2 -->
+                    <div class="insight-card" data-article="courtyard">
+                        <div class="insight-card-media">
+                            <img src="images/insight-courtyard.jpg" alt="Courtyard play area for families" loading="lazy">
+                            <span class="insight-badge-overlay">Family ROI &bull; Retention</span>
+                        </div>
+                        <div class="insight-card-body">
+                            <div class="insight-category-tag">Community Architecture</div>
+                            <h3 class="insight-card-title">The 22% Rental Premium: Why Family-First Developments Win</h3>
+                            <p class="insight-card-snippet">
+                                Properties with dedicated, car-free courtyards retain tenant families twice as long as adult-only designs, delivering proven long-term yields for property owners.
+                            </p>
+                            <div class="insight-card-footer">
+                                <span>4 min read</span>
+                                <span class="insight-read-link">Read Case Study &rarr;</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="insight-card" data-article="hallway">
-                    <div class="insight-card-media">
-                        <img src="images/insight-hallway.jpg" alt="Quiet acoustic corridor with wooden handrails" loading="lazy">
-                        <span class="insight-badge-overlay">Sensory Comfort</span>
-                    </div>
-                    <div class="insight-card-body">
-                        <div class="insight-category-tag">Corridor Acoustics</div>
-                        <h3 class="insight-card-title">Beyond Echoing Tiles: Hallways That Calm Instead of Overstimulate</h3>
-                        <p class="insight-card-snippet">
-                            Harsh, reverberating corridors cause sensory distress for young children. Dual 60cm handrails and acoustic dampening create welcoming, dignified arrival spaces.
-                        </p>
-                        <div class="insight-card-footer">
-                            <span>6 min read</span>
-                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                    <!-- Card 3 -->
+                    <div class="insight-card" data-article="hallway">
+                        <div class="insight-card-media">
+                            <img src="images/insight-hallway.jpg" alt="Quiet acoustic corridor with wooden handrails" loading="lazy">
+                            <span class="insight-badge-overlay">Sensory Comfort</span>
+                        </div>
+                        <div class="insight-card-body">
+                            <div class="insight-category-tag">Corridor Acoustics</div>
+                            <h3 class="insight-card-title">Beyond Echoing Tiles: Hallways That Calm Instead of Overstimulate</h3>
+                            <p class="insight-card-snippet">
+                                Harsh, reverberating corridors cause sensory distress for young children. Dual 60cm handrails and acoustic dampening create welcoming, dignified arrival spaces.
+                            </p>
+                            <div class="insight-card-footer">
+                                <span>6 min read</span>
+                                <span class="insight-read-link">Read Case Study &rarr;</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card 4 -->
-                <div class="insight-card" data-article="rooftop">
-                    <div class="insight-card-media">
-                        <img src="images/insight-rooftop.jpg" alt="Rooftop play deck in Westlands" loading="lazy">
-                        <span class="insight-badge-overlay">Urban Space</span>
-                    </div>
-                    <div class="insight-card-body">
-                        <div class="insight-category-tag">Rooftop Sky-Decks</div>
-                        <h3 class="insight-card-title">Reclaiming Open Space: Converting Roofs into Family Sanctuaries</h3>
-                        <p class="insight-card-snippet">
-                            With ground lots dedicated to parking bays, high-altitude rooftop gardens with 1800mm glass wind buffers bring back communal play in dense urban centers.
-                        </p>
-                        <div class="insight-card-footer">
-                            <span>5 min read</span>
-                            <span class="insight-read-link">Read Case Study &rarr;</span>
+                    <!-- Card 4 -->
+                    <div class="insight-card" data-article="rooftop">
+                        <div class="insight-card-media">
+                            <img src="images/insight-rooftop.jpg" alt="Rooftop play deck in Westlands" loading="lazy">
+                            <span class="insight-badge-overlay">Urban Space</span>
+                        </div>
+                        <div class="insight-card-body">
+                            <div class="insight-category-tag">Rooftop Sky-Decks</div>
+                            <h3 class="insight-card-title">Reclaiming Open Space: Converting Roofs into Family Sanctuaries</h3>
+                            <p class="insight-card-snippet">
+                                With ground lots dedicated to parking bays, high-altitude rooftop gardens with 1800mm glass wind buffers bring back communal play in dense urban centers.
+                            </p>
+                            <div class="insight-card-footer">
+                                <span>5 min read</span>
+                                <span class="insight-read-link">Read Case Study &rarr;</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -278,31 +293,36 @@
                 <p class="section-subtitle">
                     We replace guesswork with exact, evidence-based architectural benchmarks.
                 </p>
+                <button class="mobile-collapse-btn" data-target="#standardsBody" aria-expanded="true">
+                    <span class="collapse-icon">▲</span> <span class="collapse-label">Collapse Section</span>
+                </button>
             </div>
 
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-figure">1200<span style="font-size: 22px; font-weight: 600;">mm</span></div>
-                    <div class="metric-label">Balcony Guardrail Height</div>
-                    <p class="metric-desc">Non-climbable vertical perimeter guarding against accidental falls at height.</p>
-                </div>
+            <div class="section-collapsible-body" id="standardsBody">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-figure">1200<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                        <div class="metric-label">Balcony Guardrail Height</div>
+                        <p class="metric-desc">Non-climbable vertical perimeter guarding against accidental falls at height.</p>
+                    </div>
 
-                <div class="metric-card">
-                    <div class="metric-figure">95<span style="font-size: 22px; font-weight: 600;">mm</span></div>
-                    <div class="metric-label">Maximum Baluster Gap</div>
-                    <p class="metric-desc">Rigid spacing limit preventing pediatric head entrapment between vertical rails.</p>
-                </div>
+                    <div class="metric-card">
+                        <div class="metric-figure">95<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                        <div class="metric-label">Maximum Baluster Gap</div>
+                        <p class="metric-desc">Rigid spacing limit preventing pediatric head entrapment between vertical rails.</p>
+                    </div>
 
-                <div class="metric-card">
-                    <div class="metric-figure">600<span style="font-size: 22px; font-weight: 600;">mm</span></div>
-                    <div class="metric-label">Child Handrail Height</div>
-                    <p class="metric-desc">Secondary ergonomic rail along stairs and corridors allowing toddler independence.</p>
-                </div>
+                    <div class="metric-card">
+                        <div class="metric-figure">600<span style="font-size: 22px; font-weight: 600;">mm</span></div>
+                        <div class="metric-label">Child Handrail Height</div>
+                        <p class="metric-desc">Secondary ergonomic rail along stairs and corridors allowing toddler independence.</p>
+                    </div>
 
-                <div class="metric-card">
-                    <div class="metric-figure">10<span style="font-size: 22px; font-weight: 600;">km/h</span></div>
-                    <div class="metric-label">Courtyard Speed Cap</div>
-                    <p class="metric-desc">Physical bollards and chicanes ensuring safe separation from moving vehicles.</p>
+                    <div class="metric-card">
+                        <div class="metric-figure">10<span style="font-size: 22px; font-weight: 600;">km/h</span></div>
+                        <div class="metric-label">Courtyard Speed Cap</div>
+                        <p class="metric-desc">Physical bollards and chicanes ensuring safe separation from moving vehicles.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,67 +339,72 @@
                 <p class="section-subtitle">
                     Select your current building features to estimate your Child-Friendliness Index score.
                 </p>
+                <button class="mobile-collapse-btn" data-target="#quickCheckBody" aria-expanded="true">
+                    <span class="collapse-icon">▲</span> <span class="collapse-label">Collapse Section</span>
+                </button>
             </div>
 
-            <div class="quiz-container">
-                <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
-                    1. Balcony &amp; Window Railing Design
-                </h3>
-                
-                <div class="quiz-option-item" data-group="q1" data-pts="10">
-                    <div>
-                        <div style="font-weight: 600; color: var(--text-primary);">Horizontal metal ladder rungs</div>
-                        <div style="font-size: 13px; color: var(--text-muted);">Climbable by toddlers; height under 110cm</div>
-                    </div>
-                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
-                </div>
-
-                <div class="quiz-option-item" data-group="q1" data-pts="20">
-                    <div>
-                        <div style="font-weight: 600; color: var(--text-primary);">Vertical railings over 110cm</div>
-                        <div style="font-size: 13px; color: var(--text-muted);">Standard vertical bars without climbing footholds</div>
-                    </div>
-                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">20 pts</span>
-                </div>
-
-                <div class="quiz-option-item selected" data-group="q1" data-pts="25">
-                    <div>
-                        <div style="font-weight: 600; color: var(--text-primary);">Solid 120cm+ vertical glass balustrades</div>
-                        <div style="font-size: 13px; color: var(--text-muted);">Smooth tempered laminated glass with safe lock latches</div>
-                    </div>
-                    <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
-                </div>
-
-                <h3 style="font-size: 17px; font-weight: 700; margin: 28px 0 12px; color: var(--text-primary);">
-                    2. Courtyard &amp; Vehicle Separation
-                </h3>
-
-                <div class="quiz-option-item" data-group="q2" data-pts="10">
-                    <div>
-                        <div style="font-weight: 600; color: var(--text-primary);">Vehicles drive through play spaces</div>
-                        <div style="font-size: 13px; color: var(--text-muted);">Shared driveway and parking directly beside play area</div>
-                    </div>
-                    <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
-                </div>
-
-                <div class="quiz-option-item selected" data-group="q2" data-pts="25">
-                    <div>
-                        <div style="font-weight: 600; color: var(--text-primary);">Completely car-free courtyard</div>
-                        <div style="font-size: 13px; color: var(--text-muted);">Physical bollards, shaded seating, and full visibility for parents</div>
-                    </div>
-                    <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
-                </div>
-
-                <div class="quiz-score-display">
-                    <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Estimated Preliminary Score</div>
-                    <div class="score-big" id="quizScoreResult">100 / 100</div>
-                    <div id="quizTierLabel" style="font-size: 15px; font-weight: 700; color: var(--emerald); margin-bottom: 24px;">
-                        PLATINUM SANCTUARY &bull; CFI CERTIFIED READY
-                    </div>
+            <div class="section-collapsible-body" id="quickCheckBody">
+                <div class="quiz-container">
+                    <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+                        1. Balcony &amp; Window Railing Design
+                    </h3>
                     
-                    <a href="#" class="btn btn-primary open-contact-btn" style="width: 100%;">
-                        Schedule Official On-Site Assessment &rarr;
-                    </a>
+                    <div class="quiz-option-item" data-group="q1" data-pts="10">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">Horizontal metal ladder rungs</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Climbable by toddlers; height under 110cm</div>
+                        </div>
+                        <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
+                    </div>
+
+                    <div class="quiz-option-item" data-group="q1" data-pts="20">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">Vertical railings over 110cm</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Standard vertical bars without climbing footholds</div>
+                        </div>
+                        <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">20 pts</span>
+                    </div>
+
+                    <div class="quiz-option-item selected" data-group="q1" data-pts="25">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">Solid 120cm+ vertical glass balustrades</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Smooth tempered laminated glass with safe lock latches</div>
+                        </div>
+                        <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
+                    </div>
+
+                    <h3 style="font-size: 17px; font-weight: 700; margin: 28px 0 12px; color: var(--text-primary);">
+                        2. Courtyard &amp; Vehicle Separation
+                    </h3>
+
+                    <div class="quiz-option-item" data-group="q2" data-pts="10">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">Vehicles drive through play spaces</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Shared driveway and parking directly beside play area</div>
+                        </div>
+                        <span style="font-size: 14px; font-weight: 700; color: var(--text-muted);">10 pts</span>
+                    </div>
+
+                    <div class="quiz-option-item selected" data-group="q2" data-pts="25">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">Completely car-free courtyard</div>
+                            <div style="font-size: 13px; color: var(--text-muted);">Physical bollards, shaded seating, and full visibility for parents</div>
+                        </div>
+                        <span style="font-size: 14px; font-weight: 700; color: var(--accent);">25 pts</span>
+                    </div>
+
+                    <div class="quiz-score-display">
+                        <div style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Estimated Preliminary Score</div>
+                        <div class="score-big" id="quizScoreResult">100 / 100</div>
+                        <div id="quizTierLabel" style="font-size: 15px; font-weight: 700; color: var(--emerald); margin-bottom: 24px;">
+                            PLATINUM SANCTUARY &bull; CFI CERTIFIED READY
+                        </div>
+                        
+                        <a href="#" class="btn btn-primary open-contact-btn" style="width: 100%;">
+                            Schedule Official On-Site Assessment &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -527,6 +552,15 @@
                 <!-- Dynamically populated from JS -->
             </div>
         </div>
+    </div>
+
+    <!-- ======================================================================
+         MOBILE FLOATING BOTTOM ACTION DOCK
+         ====================================================================== -->
+    <div class="mobile-bottom-dock">
+        <a href="#quick-check" class="mobile-dock-btn dock-accent">⚡ 60s Check</a>
+        <button class="mobile-dock-btn open-tool-trigger">🛠 Index Tool</button>
+        <a href="https://wa.me/254733940215?text=Hello%20Azaani%20Team%2C%20I%20am%20interested%20in%20a%20Child-Friendly%20Index%20(CFI)%20assessment%20for%20our%20property." target="_blank" rel="noopener noreferrer" class="mobile-dock-btn dock-wa">💬 WhatsApp</a>
     </div>
 
     <!-- Scripts -->

@@ -105,7 +105,6 @@ export default function Dashboard() {
       >
         <div className="p-6 flex items-center justify-between border-b border-slate-100">
           <div className="flex items-center gap-2.5 font-bold text-xl text-slate-900">
-            <img src="/assets/logos/Azaani - Icon - Black.png" alt="Azaani" className="h-6 w-auto" />
             <span>ChildFriendly<span className="text-rose-500">.</span></span>
             <span className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Portal</span>
           </div>

@@ -319,4 +319,27 @@ document.addEventListener('DOMContentLoaded', () => {
             if (toolLoginModal) toolLoginModal.classList.remove('active');
         }
     });
+
+    // ==========================================================================
+    // 7. MOBILE SECTION COLLAPSE / ACCORDION CONTROLS
+    // ==========================================================================
+    const collapseBtns = document.querySelectorAll('.mobile-collapse-btn');
+    collapseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetSelector = btn.dataset.target;
+            const targetEl = document.querySelector(targetSelector);
+            if (!targetEl) return;
+
+            const isCurrentlyCollapsed = targetEl.classList.contains('is-collapsed');
+            if (isCurrentlyCollapsed) {
+                targetEl.classList.remove('is-collapsed');
+                btn.setAttribute('aria-expanded', 'true');
+                btn.innerHTML = '<span class="collapse-icon">&#9650;</span> <span class="collapse-label">Collapse Section</span>';
+            } else {
+                targetEl.classList.add('is-collapsed');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.innerHTML = '<span class="collapse-icon">&#9660;</span> <span class="collapse-label">Expand Section</span>';
+            }
+        });
+    });
 });
